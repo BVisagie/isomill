@@ -1,0 +1,13 @@
+isomill
+Copyright 2026 isomill contributors
+
+Licensed under the Apache License, Version 2.0.
+
+isomill generates installer configuration and injects it into official
+Fedora and Ubuntu installer images. It is not a Fedora or Ubuntu remix,
+and is not affiliated with, endorsed by, or sponsored by the Fedora
+Project, Red Hat, Canonical, or Ubuntu.
+
+Trademarks (Fedora, Ubuntu, Visual Studio Code, Docker, Cursor, and
+others) identify software that the generated installer is configured to
+install. Nominative use only.

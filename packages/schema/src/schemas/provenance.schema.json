@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://isomill.dev/schema/provenance.schema.json",
+  "title": "isomill ISO provenance",
+  "description": "Witness record embedded at /isomill/provenance.json. Observed facts, not isomill-attested vendor keys.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedBy",
+    "whatIsThis",
+    "upstreamIso",
+    "configuration",
+    "catalogue",
+    "repositories",
+    "sourceGraph"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "whatIsThis": { "type": "string" },
+    "generatedBy": {
+      "type": "object",
+      "required": ["project", "version", "gitCommit"],
+      "properties": {
+        "project": { "type": "string" },
+        "homepage": { "type": "string" },
+        "sourceRepo": { "type": "string" },
+        "version": { "type": "string" },
+        "gitCommit": { "type": "string" }
+      }
+    },
+    "upstreamIso": {
+      "type": "object",
+      "required": [
+        "distribution",
+        "release",
+        "filename",
+        "downloadUrl",
+        "checksumAlgorithm",
+        "checksumValue",
+        "checksumUrl"
+      ],
+      "properties": {
+        "distribution": { "type": "string" },
+        "release": { "type": "string" },
+        "filename": { "type": "string" },
+        "downloadUrl": { "type": "string" },
+        "checksumAlgorithm": { "type": "string" },
+        "checksumValue": { "type": "string" },
+        "checksumUrl": { "type": "string" },
+        "checksumSignatureUrl": { "type": "string" },
+        "signatureVerified": { "type": "boolean" },
+        "gpgKeyUrl": { "type": "string" },
+        "observedKeyFingerprint": { "type": "string" },
+        "keyFetchedAt": { "type": "string" }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "required": ["installCfgDigest", "machineDefinitionDigest"],
+      "properties": {
+        "installCfgDigest": { "type": "string" },
+        "machineDefinitionDigest": { "type": "string" },
+        "adapter": { "enum": ["kickstart", "autoinstall"] }
+      }
+    },
+    "catalogue": {
+      "type": "object",
+      "required": ["version", "digest"],
+      "properties": {
+        "version": { "type": "string" },
+        "digest": { "type": "string" }
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "url"],
+        "properties": {
+          "kind": { "enum": ["distro", "vendor", "npm"] },
+          "url": { "type": "string" },
+          "publisher": { "type": "string" },
+          "keyUrl": { "type": "string" },
+          "observedKeyFingerprint": { "type": "string" },
+          "keyFetchedAt": { "type": "string" },
+          "packages": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "npmDisclaimer": { "type": "string" },
+    "sourceGraph": { "type": "array" },
+    "sample": {
+      "type": "boolean",
+      "description": "True only for the GitHub Pages fixture; never true on a worker-built ISO."
+    }
+  }
+}

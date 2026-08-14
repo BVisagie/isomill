@@ -1,0 +1,94 @@
+name: isomill
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: isomill
+      POSTGRES_PASSWORD: isomill
+      POSTGRES_DB: isomill
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U isomill"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgres://isomill:isomill@postgres:5432/isomill
+      PORT: "3001"
+      WORKER_TOKEN: dev-worker
+    ports:
+      - "127.0.0.1:3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - iso-out:/iso-out:ro
+    networks:
+      - internal
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      NEXT_PUBLIC_API_URL: http://127.0.0.1:3001
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - api
+    networks:
+      - internal
+
+  egress-proxy:
+    build:
+      context: .
+      dockerfile: workers/egress-proxy/Dockerfile
+    networks:
+      - internal
+      - egress
+
+  worker:
+    build:
+      context: .
+      dockerfile: workers/Dockerfile
+    privileged: true
+    environment:
+      API_URL: http://api:3001
+      WORKER_TOKEN: dev-worker
+      ISO_CACHE: /iso-cache
+      ISO_OUT: /iso-out
+      HTTP_PROXY: http://egress-proxy:3128
+      HTTPS_PROXY: http://egress-proxy:3128
+      http_proxy: http://egress-proxy:3128
+      https_proxy: http://egress-proxy:3128
+      NO_PROXY: api,postgres,localhost
+      no_proxy: api,postgres,localhost
+      NODE_USE_ENV_PROXY: "1"
+    volumes:
+      - iso-cache:/iso-cache
+      - iso-out:/iso-out
+    depends_on:
+      - api
+      - egress-proxy
+    networks:
+      - internal
+
+networks:
+  internal:
+    internal: true
+  egress:
+    driver: bridge
+
+volumes:
+  pgdata:
+  iso-cache:
+  iso-out:

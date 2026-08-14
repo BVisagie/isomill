@@ -1,0 +1,26 @@
+{
+  "name": "isomill",
+  "private": true,
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "bin": {
+    "isomill": "./packages/compiler/dist/cli.js"
+  },
+  "description": "Installer compiler: Machine Definition → thin official Fedora/Ubuntu ISO with provenance on the media.",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "workers/runner"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "compile": "npm run compile -w @isomill/compiler",
+    "dev:api": "npm run dev -w @isomill/api",
+    "dev:web": "npm run dev -w @isomill/web",
+    "build:demo": "ISOMILL_DEMO=1 npm run build:demo -w @isomill/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

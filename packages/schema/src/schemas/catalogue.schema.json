@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://isomill.dev/schema/catalogue.schema.json",
+  "title": "isomill Source Catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "oses", "applications", "services"],
+  "properties": {
+    "version": { "type": "string" },
+    "oses": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/osEntry" }
+    },
+    "applications": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/application" }
+    },
+    "services": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/service" }
+    }
+  },
+  "$defs": {
+    "osEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "distribution",
+        "release",
+        "architecture",
+        "displayName",
+        "publisher",
+        "media",
+        "locales"
+      ],
+      "properties": {
+        "distribution": { "enum": ["fedora", "ubuntu"] },
+        "release": { "type": "string" },
+        "architecture": { "enum": ["x86_64"] },
+        "displayName": { "type": "string" },
+        "publisher": { "type": "string" },
+        "icon": { "type": "string" },
+        "locales": { "$ref": "#/$defs/localeCatalog" },
+        "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "filename",
+            "downloadUrl",
+            "checksumUrl",
+            "gpgKeyUrl",
+            "keyDocsUrl"
+          ],
+          "properties": {
+            "kind": { "enum": ["everything-netinst", "desktop"] },
+            "filename": { "type": "string" },
+            "downloadUrl": { "type": "string", "format": "uri" },
+            "checksumUrl": { "type": "string", "format": "uri" },
+            "checksumSignatureUrl": { "type": "string", "format": "uri" },
+            "gpgKeyUrl": { "type": "string", "format": "uri" },
+            "keyDocsUrl": { "type": "string", "format": "uri" },
+            "lastObservedFingerprint": { "type": "string" }
+          }
+        }
+      }
+    },
+    "localeCatalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["languages", "keyboards", "timezones"],
+      "properties": {
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "fedoraLang", "ubuntuLocale"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "fedoraLang": { "type": "string" },
+              "ubuntuLocale": { "type": "string" }
+            }
+          }
+        },
+        "keyboards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "fedoraKeymap", "ubuntuLayout"],
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "fedoraKeymap": { "type": "string" },
+              "ubuntuLayout": { "type": "string" },
+              "ubuntuVariant": { "type": "string" }
+            }
+          }
+        },
+        "timezones": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "application": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "group",
+        "license",
+        "icon",
+        "iconSource",
+        "iconLicense",
+        "targets"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "group": {
+          "enum": [
+            "editors",
+            "terminal",
+            "git",
+            "cli",
+            "languages",
+            "containers",
+            "ai"
+          ]
+        },
+        "license": {
+          "enum": ["first-party", "vendor", "proprietary", "mixed"]
+        },
+        "publisher": { "type": "string" },
+        "icon": { "type": "string" },
+        "iconSource": { "type": "string" },
+        "iconLicense": { "type": "string" },
+        "note": { "type": "string" },
+        "requires": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "unavailableReason": { "type": "string" },
+        "targets": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/appTarget" }
+        }
+      }
+    },
+    "appTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceClass", "packages"],
+      "properties": {
+        "sourceClass": { "enum": ["distro", "vendor", "npm"] },
+        "packages": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "npmPackage": { "type": "string" },
+        "distroVersionLabel": { "type": "string" },
+        "units": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "vendor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["publisher", "repoUrl", "keyUrl", "keyDocsUrl"],
+          "properties": {
+            "publisher": { "type": "string" },
+            "repoUrl": { "type": "string", "format": "uri" },
+            "keyUrl": { "type": "string", "format": "uri" },
+            "keyDocsUrl": { "type": "string", "format": "uri" },
+            "repoFile": { "type": "string" },
+            "lastObservedFingerprint": { "type": "string" }
+          }
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "targets"],
+      "properties": {
+        "id": { "enum": ["ssh", "docker"] },
+        "name": { "type": "string" },
+        "targets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["packages", "units"],
+            "properties": {
+              "packages": { "type": "array", "items": { "type": "string" } },
+              "units": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

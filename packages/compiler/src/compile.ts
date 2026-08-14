@@ -1,0 +1,122 @@
+import { mkdirSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import type { Catalogue, MachineDefinition, Provenance } from "@isomill/schema";
+import { catalogue as defaultCatalogue } from "@isomill/catalogue";
+import { generateKickstart } from "./fedora.js";
+import { generateAutoinstall } from "./ubuntu.js";
+import {
+  buildProvenance,
+  renderReadme,
+  renderSources,
+} from "./provenance.js";
+import { catalogueDigest } from "@isomill/catalogue";
+import { prepareDefinition } from "./common.js";
+
+export interface CompileResult {
+  definition: MachineDefinition;
+  adapter: "kickstart" | "autoinstall";
+  installCfg: string;
+  userData?: string;
+  metaData?: string;
+  provenance: Provenance;
+  readme: string;
+  sources: string;
+  catalogueLock: string;
+}
+
+export interface CompileOptions {
+  builder?: { version: string; gitCommit: string; sourceRepo?: string };
+  upstream?: Provenance["upstreamIso"];
+  isoVerified?: boolean;
+  sample?: boolean;
+}
+
+export function compileDefinition(
+  input: MachineDefinition,
+  cat: Catalogue = defaultCatalogue,
+  opts: CompileOptions = {},
+): CompileResult {
+  const definition = prepareDefinition(input, cat);
+  const os = definition.os.distribution;
+  let installCfg: string;
+  let userData: string | undefined;
+  let metaData: string | undefined;
+  if (os === "fedora") {
+    installCfg = generateKickstart(definition, cat);
+  } else {
+    const auto = generateAutoinstall(definition, cat);
+    userData = auto.userData;
+    metaData = auto.metaData;
+    installCfg = auto.userData;
+  }
+
+  const media = cat.oses[`${definition.os.distribution}-${definition.os.release}`]!.media;
+  const provenance = buildProvenance(
+    {
+      definition,
+      installCfg,
+      builder: opts.builder ?? {
+        version: "0.1.0",
+        gitCommit: process.env.ISOMILL_GIT_COMMIT ?? "unknown",
+      },
+      upstream: opts.upstream ?? {
+        distribution: definition.os.distribution,
+        release: definition.os.release,
+        filename: media.filename,
+        downloadUrl: media.downloadUrl,
+        checksumAlgorithm: "sha256",
+        checksumValue: "not-verified",
+        checksumUrl: media.checksumUrl,
+        checksumSignatureUrl: media.checksumSignatureUrl,
+        gpgKeyUrl: media.gpgKeyUrl,
+        signatureVerified: Boolean(opts.isoVerified),
+      },
+      isoVerified: opts.isoVerified,
+      sample: opts.sample,
+    },
+    cat,
+  );
+
+  return {
+    definition,
+    adapter: os === "fedora" ? "kickstart" : "autoinstall",
+    installCfg,
+    userData,
+    metaData,
+    provenance,
+    readme: renderReadme(provenance, definition),
+    sources: renderSources(provenance),
+    catalogueLock: JSON.stringify(
+      {
+        version: cat.version,
+        digest: catalogueDigest(cat),
+        os: `${definition.os.distribution}-${definition.os.release}`,
+        applications: definition.applications,
+      },
+      null,
+      2,
+    ),
+  };
+}
+
+export function writeIsomillTree(result: CompileResult, dir: string): void {
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "README.txt"), result.readme);
+  writeFileSync(join(dir, "SOURCES.txt"), result.sources);
+  writeFileSync(
+    join(dir, "provenance.json"),
+    `${JSON.stringify(result.provenance, null, 2)}\n`,
+  );
+  writeFileSync(
+    join(dir, "machine-definition.json"),
+    `${JSON.stringify(result.definition, null, 2)}\n`,
+  );
+  writeFileSync(join(dir, "install.cfg"), result.installCfg);
+  writeFileSync(join(dir, "catalogue.lock.json"), result.catalogueLock);
+  if (result.userData) {
+    writeFileSync(join(dir, "user-data"), result.userData);
+  }
+  if (result.metaData) {
+    writeFileSync(join(dir, "meta-data"), result.metaData);
+  }
+}

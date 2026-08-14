@@ -1,0 +1,11 @@
+node_modules
+**/node_modules
+**/.next
+**/dist
+.git
+*.iso
+iso-cache
+iso-out
+.DS_Store
+apps/web/out
+coverage

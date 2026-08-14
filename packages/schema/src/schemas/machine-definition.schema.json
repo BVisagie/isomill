@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://isomill.dev/schema/machine-definition.schema.json",
+  "title": "isomill Machine Definition",
+  "description": "Public, distribution-independent workstation configuration. No users, passwords, or storage.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "os", "desktop", "locale"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "os": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["distribution", "release", "architecture"],
+      "properties": {
+        "distribution": {
+          "type": "string",
+          "enum": ["fedora", "ubuntu"]
+        },
+        "release": {
+          "type": "string",
+          "minLength": 1
+        },
+        "architecture": {
+          "type": "string",
+          "enum": ["x86_64"]
+        }
+      }
+    },
+    "desktop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment"],
+      "properties": {
+        "environment": {
+          "type": "string",
+          "enum": ["gnome"]
+        }
+      }
+    },
+    "locale": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "keyboard", "timezone"],
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "Canonical locale id from the selected distro+release picker (e.g. en_US, en_GB).",
+          "pattern": "^[a-z]{2}(_[A-Z]{2})?$"
+        },
+        "keyboard": {
+          "type": "string",
+          "description": "Canonical keyboard id from the selected distro+release picker (e.g. us, gb).",
+          "pattern": "^[a-z0-9_\\-]+$"
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone both Anaconda and Subiquity already understand.",
+          "pattern": "^(UTC|[A-Za-z_]+(/[A-Za-z0-9_+-]+)+)$"
+        }
+      }
+    },
+    "applications": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "uniqueItems": true
+    },
+    "services": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string",
+        "enum": ["ssh", "docker"]
+      },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@isomill/compiler",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "isomill": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "compile": "tsx src/cli.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@isomill/catalogue": "0.1.0",
+    "@isomill/schema": "0.1.0",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

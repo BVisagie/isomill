@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.next/
+out/
+coverage/
+*.iso
+.DS_Store
+.env
+.env.local
+*.log
+iso-cache/
+iso-out/
+fixtures/generated/
+
+.cache/
+apps/web/tsconfig.tsbuildinfo
+packages/*/tsconfig.tsbuildinfo

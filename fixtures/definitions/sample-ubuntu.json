@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "os": {
+    "distribution": "ubuntu",
+    "release": "24.04",
+    "architecture": "x86_64"
+  },
+  "desktop": {
+    "environment": "gnome"
+  },
+  "locale": {
+    "language": "en_GB",
+    "keyboard": "gb",
+    "timezone": "Europe/Amsterdam"
+  },
+  "applications": [
+    "git",
+    "neovim",
+    "btop",
+    "python",
+    "vscode",
+    "docker",
+    "claude-code"
+  ],
+  "services": ["ssh", "docker"]
+}
