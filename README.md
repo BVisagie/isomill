@@ -28,9 +28,9 @@ The USB carries the configuration. It does not depend on this repo or your Compo
 
 ## Try the visual demo
 
-The GitHub Pages demo is the full builder with a **live Source Graph**. Generate does not build an ISO. A sample `/isomill` tree is included and labeled as a fixture, not a live image.
+The GitHub Pages demo is the full builder with a **live Source Graph**. Generate does not build an ISO. A sample `/isomill` tree is included and labeled as a fixture, not a live image. 
 
-First deploy: in the repo, **Settings → Pages → Build and deployment → Source: GitHub Actions**. Until that is set, `actions/deploy-pages` returns 404 even if the workflow succeeds at building.
+You should be able to view the demo site here: https://bvisagie.github.io/isomill/
 
 ## Build a real ISO
 
