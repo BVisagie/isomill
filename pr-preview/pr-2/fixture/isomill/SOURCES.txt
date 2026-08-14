@@ -1,0 +1,8 @@
+project=isomill
+version=0.1.0
+gitCommit=sample
+upstream=https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.7.iso
+filename=Fedora-Everything-netinst-x86_64-44-1.7.iso
+checksum=sha256:not-verified-sample
+catalogue=see catalogue.lock.json
+note=SAMPLE FIXTURE, NOT A LIVE ISO
