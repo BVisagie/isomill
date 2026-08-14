@@ -6,6 +6,7 @@ import {
   catalogue,
   expandDefinition,
   getMedia,
+  GROUPS,
   isAppAvailable,
   osChoices,
   shouldDropDistroFirefox,
@@ -106,6 +107,13 @@ describe("catalogue", () => {
     expect(
       shouldDropDistroFirefox({ ...fedora, applications: ["firefox", "chromium"] }),
     ).toBe(false);
+  });
+
+  it("exposes every catalogue app group in GROUPS so the demo can tile them", () => {
+    const exposed = new Set(GROUPS.map((group) => group.id));
+    for (const app of catalogue.applications) {
+      expect(exposed.has(app.group), `${app.id} group ${app.group}`).toBe(true);
+    }
   });
 
   it("ships well-formed icon SVGs that browsers can load as images", () => {

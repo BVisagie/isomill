@@ -57,6 +57,9 @@ jobs:
       - if: github.event.action != 'closed'
         run: ISOMILL_DEMO=1 npm run build:demo -w @isomill/web
 
+      - if: github.event.action != 'closed'
+        run: npm run check:demo
+
       - uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: apps/web/out

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import type {
+  AppGroup,
   Application,
   AppTarget,
   Architecture,
@@ -195,16 +196,21 @@ export function shouldDropDistroFirefox(
   return browsers.length > 0 && !browsers.includes("firefox");
 }
 
-export const GROUPS: Array<{ id: Application["group"]; label: string }> = [
-  { id: "browsers", label: "Browsers" },
-  { id: "editors", label: "Editors" },
-  { id: "terminal", label: "Terminal" },
-  { id: "git", label: "Git" },
-  { id: "cli", label: "CLI" },
-  { id: "languages", label: "Languages" },
-  { id: "containers", label: "Containers" },
-  { id: "ai", label: "AI assistants" },
-];
+/** Demo tiles follow this list. A new AppGroup that is missing here is invisible. */
+export const GROUP_LABELS = {
+  browsers: "Browsers",
+  editors: "Editors",
+  terminal: "Terminal",
+  git: "Git",
+  cli: "CLI",
+  languages: "Languages",
+  containers: "Containers",
+  ai: "AI assistants",
+} as const satisfies Record<AppGroup, string>;
+
+export const GROUPS: Array<{ id: AppGroup; label: string }> = (
+  Object.keys(GROUP_LABELS) as AppGroup[]
+).map((id) => ({ id, label: GROUP_LABELS[id] }));
 
 export interface SourceGraphOptions {
   isoVerified?: boolean;

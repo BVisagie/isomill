@@ -29,5 +29,6 @@ jobs:
       - run: npm run build -w @isomill/resolver
       - run: npm run build -w @isomill/api
       - run: ISOMILL_DEMO=1 NEXT_PUBLIC_BASE_PATH=/isomill npm run build:demo -w @isomill/web
+      - run: npm run check:demo
       - run: npm run typecheck
       - run: npm test

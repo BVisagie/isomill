@@ -20,7 +20,8 @@
     "compile": "npm run compile -w @isomill/compiler",
     "dev:api": "npm run dev -w @isomill/api",
     "dev:web": "npm run dev -w @isomill/web",
-    "build:demo": "ISOMILL_DEMO=1 npm run build:demo -w @isomill/web"
+    "build:demo": "ISOMILL_DEMO=1 npm run build:demo -w @isomill/web",
+    "check:demo": "node apps/web/scripts/check-demo-export.mjs"
   },
   "engines": {
     "node": ">=22"
