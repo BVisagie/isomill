@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" fill="none">
   <rect width="32" height="32" rx="7" fill="#2A1240"/>
   <svg x="3" y="3" width="26" height="26" viewBox="0.171 0.201 512 512" preserveAspectRatio="xMidYMid meet">
-<metadata
-     id="emacs-metadata70"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+<defs
      id="emacs-defs4770"><linearGradient
        id="emacs-linearGradient4292"><stop
          id="emacs-stop4294"
