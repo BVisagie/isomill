@@ -30,7 +30,7 @@ The USB carries the configuration. It does not depend on this repo or your Compo
 
 The GitHub Pages demo is the full builder with a **live Source Graph**. Generate does not build an ISO. A sample `/isomill` tree is included and labeled as a fixture, not a live image. 
 
-You should be able to view the demo site here: https://bvisagie.github.io/isomill/
+You should be able to view the demo site here: [View Demo Site ↗](https://bvisagie.github.io/isomill/)
 
 ## Build a real ISO
 
