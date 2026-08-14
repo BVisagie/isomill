@@ -65,7 +65,7 @@ export function buildProvenance(
       );
       repositories.push({
         kind: "vendor",
-        url: target.vendor.repoUrl,
+        url: target.vendor.repoUrl.replaceAll("{arch}", definition.os.architecture),
         publisher: target.vendor.publisher,
         keyUrl: target.vendor.keyUrl,
         observedKeyFingerprint: observed?.fingerprint,

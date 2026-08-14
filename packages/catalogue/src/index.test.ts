@@ -8,11 +8,12 @@ import {
   getMedia,
   isAppAvailable,
   osChoices,
+  shouldDropDistroFirefox,
 } from "./index.js";
 
 const iconsDir = join(dirname(fileURLToPath(import.meta.url)), "../icons");
 
-function unboundPrefixes(xml) {
+function unboundPrefixes(xml: string) {
   const declared = new Set(["xml", "xmlns"]);
   for (const match of xml.matchAll(/\sxmlns:([A-Za-z_][\w.-]*)=/g)) {
     declared.add(match[1]);
@@ -36,7 +37,7 @@ const fedora = {
 
 describe("catalogue", () => {
   it("loads a versioned catalogue", () => {
-    expect(catalogue.version).toBe("1.1.0");
+    expect(catalogue.version).toBe("1.2.0");
     expect(catalogue.applications.length).toBeGreaterThan(20);
     expect(osChoices().map((o) => o.key)).toEqual([
       "fedora-44",
@@ -80,6 +81,31 @@ describe("catalogue", () => {
     });
     expect(expanded.applications).toContain("nodejs");
     expect(expanded.applications).toContain("claude-code");
+  });
+
+  it("offers browsers from first-party or vendor sources, not snaps", () => {
+    const ids = catalogue.applications
+      .filter((a) => a.group === "browsers")
+      .map((a) => a.id);
+    expect(ids).toEqual(["firefox", "chromium", "brave-origin", "gnome-web"]);
+    const chromium = catalogue.applications.find((a) => a.id === "chromium")!;
+    expect(isAppAvailable(chromium, fedora)).toBe(true);
+    expect(
+      isAppAvailable(chromium, {
+        ...fedora,
+        os: { distribution: "ubuntu", release: "24.04", architecture: "x86_64" },
+      }),
+    ).toBe(false);
+    expect(chromium.unavailableReason).toMatch(/Snap/);
+  });
+
+  it("drops the desktop Firefox only when another browser is chosen", () => {
+    expect(shouldDropDistroFirefox({ ...fedora, applications: ["git"] })).toBe(false);
+    expect(shouldDropDistroFirefox({ ...fedora, applications: ["firefox"] })).toBe(false);
+    expect(shouldDropDistroFirefox({ ...fedora, applications: ["chromium"] })).toBe(true);
+    expect(
+      shouldDropDistroFirefox({ ...fedora, applications: ["firefox", "chromium"] }),
+    ).toBe(false);
   });
 
   it("ships well-formed icon SVGs that browsers can load as images", () => {

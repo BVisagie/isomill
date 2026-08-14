@@ -3,6 +3,7 @@ export type Architecture = "x86_64" | "aarch64";
 export type DesktopEnvironment = "gnome";
 export type SourceClass = "distro" | "vendor" | "npm";
 export type AppGroup =
+  | "browsers"
   | "editors"
   | "terminal"
   | "git"
@@ -85,6 +86,12 @@ export interface OsEntry {
   media: Record<Architecture, OsMedia>;
 }
 
+export interface VendorAptPin {
+  origin: string;
+  priority: number;
+  package?: string;
+}
+
 export interface VendorSource {
   publisher: string;
   repoUrl: string;
@@ -92,6 +99,8 @@ export interface VendorSource {
   keyDocsUrl: string;
   repoFile?: string;
   lastObservedFingerprint?: string;
+  aptPin?: VendorAptPin;
+  removeSnaps?: string[];
 }
 
 export interface AppTarget {

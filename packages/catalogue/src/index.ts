@@ -176,7 +176,27 @@ export function egressHosts(
   return [...hosts].sort();
 }
 
+export function selectedBrowserIds(
+  definition: MachineDefinition,
+  cat: Catalogue = catalogue,
+): string[] {
+  return (definition.applications ?? []).filter((id) => {
+    const app = cat.applications.find((a) => a.id === id);
+    return app?.group === "browsers";
+  });
+}
+
+/** Distro desktops ship Firefox. Drop it only when the user picked other browsers and not Firefox. */
+export function shouldDropDistroFirefox(
+  definition: MachineDefinition,
+  cat: Catalogue = catalogue,
+): boolean {
+  const browsers = selectedBrowserIds(definition, cat);
+  return browsers.length > 0 && !browsers.includes("firefox");
+}
+
 export const GROUPS: Array<{ id: Application["group"]; label: string }> = [
+  { id: "browsers", label: "Browsers" },
   { id: "editors", label: "Editors" },
   { id: "terminal", label: "Terminal" },
   { id: "git", label: "Git" },

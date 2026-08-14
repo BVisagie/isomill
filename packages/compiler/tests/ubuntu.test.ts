@@ -98,4 +98,27 @@ describe("ubuntu 24.04 autoinstall", () => {
     });
     expect(userData).toContain("deb [arch=amd64] https://download.docker.com/linux/ubuntu resolute stable");
   });
+
+  it("installs Mozilla Firefox as a vendor deb and pins it over the Snap stub", () => {
+    const { userData } = generateAutoinstall({
+      ...sample,
+      applications: ["firefox"],
+    });
+    expect(userData).toContain("packages.mozilla.org/apt");
+    expect(userData).toContain("Pin: origin packages.mozilla.org");
+    expect(userData).toContain("Pin-Priority: 1000");
+    expect(userData).toContain("snap remove firefox");
+    expect(userData).toContain("apt-get install -y firefox");
+    expect(userData).not.toContain("apt-get purge -y firefox");
+  });
+
+  it("drops Ubuntu's default Firefox Snap when another browser is selected", () => {
+    const { userData } = generateAutoinstall({
+      ...sample,
+      applications: ["gnome-web"],
+    });
+    expect(userData).toContain("epiphany-browser");
+    expect(userData).toContain("snap remove firefox");
+    expect(userData).toContain("apt-get purge -y firefox");
+  });
 });

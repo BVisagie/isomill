@@ -129,6 +129,7 @@
         "name": { "type": "string" },
         "group": {
           "enum": [
+            "browsers",
             "editors",
             "terminal",
             "git",
@@ -179,11 +180,29 @@
           "required": ["publisher", "repoUrl", "keyUrl", "keyDocsUrl"],
           "properties": {
             "publisher": { "type": "string" },
-            "repoUrl": { "type": "string", "format": "uri" },
+            "repoUrl": {
+              "type": "string",
+              "pattern": "^https://",
+              "description": "HTTPS repository URL. May include {arch} for Fedora x86_64/aarch64 or Ubuntu amd64/arm64 substitution."
+            },
             "keyUrl": { "type": "string", "format": "uri" },
             "keyDocsUrl": { "type": "string", "format": "uri" },
             "repoFile": { "type": "string" },
-            "lastObservedFingerprint": { "type": "string" }
+            "lastObservedFingerprint": { "type": "string" },
+            "aptPin": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["origin", "priority"],
+              "properties": {
+                "origin": { "type": "string" },
+                "priority": { "type": "integer", "minimum": 1, "maximum": 1000 },
+                "package": { "type": "string" }
+              }
+            },
+            "removeSnaps": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
           }
         }
       }
