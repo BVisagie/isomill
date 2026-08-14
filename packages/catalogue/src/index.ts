@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import type {
+  AppGroup,
   Application,
   AppTarget,
   Architecture,
@@ -176,15 +177,40 @@ export function egressHosts(
   return [...hosts].sort();
 }
 
-export const GROUPS: Array<{ id: Application["group"]; label: string }> = [
-  { id: "editors", label: "Editors" },
-  { id: "terminal", label: "Terminal" },
-  { id: "git", label: "Git" },
-  { id: "cli", label: "CLI" },
-  { id: "languages", label: "Languages" },
-  { id: "containers", label: "Containers" },
-  { id: "ai", label: "AI assistants" },
-];
+export function selectedBrowserIds(
+  definition: MachineDefinition,
+  cat: Catalogue = catalogue,
+): string[] {
+  return (definition.applications ?? []).filter((id) => {
+    const app = cat.applications.find((a) => a.id === id);
+    return app?.group === "browsers";
+  });
+}
+
+/** Distro desktops ship Firefox. Drop it only when the user picked other browsers and not Firefox. */
+export function shouldDropDistroFirefox(
+  definition: MachineDefinition,
+  cat: Catalogue = catalogue,
+): boolean {
+  const browsers = selectedBrowserIds(definition, cat);
+  return browsers.length > 0 && !browsers.includes("firefox");
+}
+
+/** Demo tiles follow this list. A new AppGroup that is missing here is invisible. */
+export const GROUP_LABELS = {
+  browsers: "Browsers",
+  editors: "Editors",
+  terminal: "Terminal",
+  git: "Git",
+  cli: "CLI",
+  languages: "Languages",
+  containers: "Containers",
+  ai: "AI assistants",
+} as const satisfies Record<AppGroup, string>;
+
+export const GROUPS: Array<{ id: AppGroup; label: string }> = (
+  Object.keys(GROUP_LABELS) as AppGroup[]
+).map((id) => ({ id, label: GROUP_LABELS[id] }));
 
 export interface SourceGraphOptions {
   isoVerified?: boolean;

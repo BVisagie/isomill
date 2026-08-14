@@ -6,6 +6,7 @@ import {
   getApplication,
   getOs,
   getTarget,
+  shouldDropDistroFirefox,
 } from "@isomill/catalogue";
 import { assertKickstartSafety, osKeyOf, prepareDefinition } from "./common.js";
 
@@ -23,9 +24,14 @@ export function generateKickstart(
   const definition = prepareDefinition(input, cat);
   const loc = fedoraLocale(definition, cat);
   const packages = new Set<string>(["@^workstation-product-environment"]);
+  const exclusions = new Set<string>();
   const repos: string[] = [];
   const npmPkgs: string[] = [];
   const units = new Set<string>();
+
+  if (shouldDropDistroFirefox(definition, cat)) {
+    exclusions.add("-firefox");
+  }
 
   for (const id of definition.applications ?? []) {
     const app = getApplication(id, cat);
@@ -44,11 +50,15 @@ export function generateKickstart(
       packages.add(pkg);
     }
     if (target.sourceClass === "vendor" && target.vendor) {
-      assertHttpsUrl(target.vendor.repoUrl, "repo");
+      assertHttpsUrl(target.vendor.repoUrl.replaceAll("{arch}", "x86_64"), "repo");
       assertHttpsUrl(target.vendor.keyUrl, "key");
       const name = id.replace(/[^a-z0-9]/g, "");
+      const repoUrl = target.vendor.repoUrl.replaceAll(
+        "{arch}",
+        definition.os.architecture,
+      );
       repos.push(
-        `repo --name=${name} --baseurl=${target.vendor.repoUrl} --gpgcheck=1 --gpgkey=${target.vendor.keyUrl}`,
+        `repo --name=${name} --baseurl=${repoUrl} --gpgcheck=1 --gpgkey=${target.vendor.keyUrl}`,
       );
     }
     for (const unit of target.units ?? []) {
@@ -94,6 +104,9 @@ export function generateKickstart(
 
   lines.push("%packages");
   for (const pkg of [...packages].sort()) {
+    lines.push(pkg);
+  }
+  for (const pkg of [...exclusions].sort()) {
     lines.push(pkg);
   }
   lines.push("%end", "");

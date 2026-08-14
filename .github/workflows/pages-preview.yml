@@ -1,0 +1,67 @@
+name: pages-preview
+
+# Temporary demo at https://<owner>.github.io/<repo>/pr-preview/pr-<n>/
+# GitHub's official Pages action cannot host a second site per PR (preview: is
+# still an internal alpha). Previews live on the gh-pages branch next to
+# production; they are not visible until Pages is set to Deploy from a branch
+# (gh-pages / root). Do that after main has mirrored production onto gh-pages.
+# Fork PRs are skipped: rossjrw/pr-preview-action@v1 cannot deploy them.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+concurrency:
+  group: pages-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        if: github.event.action != 'closed'
+        with:
+          node-version: "24"
+          cache: npm
+
+      - if: github.event.action != 'closed'
+        run: npm ci
+
+      - if: github.event.action != 'closed'
+        run: npm run build -w @isomill/schema
+
+      - if: github.event.action != 'closed'
+        run: npm run build -w @isomill/catalogue
+
+      - if: github.event.action != 'closed'
+        run: npm run build -w @isomill/compiler
+
+      - name: Base path for this PR preview
+        if: github.event.action != 'closed'
+        run: |
+          if [ "${{ github.event.repository.name }}" = "${{ github.repository_owner }}" ]; then
+            PROD_BASE=""
+          else
+            PROD_BASE="/${{ github.event.repository.name }}"
+          fi
+          echo "NEXT_PUBLIC_BASE_PATH=${PROD_BASE}/pr-preview/pr-${{ github.event.number }}" >> "$GITHUB_ENV"
+
+      - if: github.event.action != 'closed'
+        run: ISOMILL_DEMO=1 npm run build:demo -w @isomill/web
+
+      - if: github.event.action != 'closed'
+        run: npm run check:demo
+
+      - uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: apps/web/out
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview

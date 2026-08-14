@@ -1,4 +1,4 @@
-import { accessSync, constants } from "node:fs";
+import { accessSync, constants, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
@@ -13,7 +13,7 @@ describe("iso inject scripts", () => {
   });
 
   it("ubuntu injector replays the source boot catalog", () => {
-    const sh = require("node:fs").readFileSync(
+    const sh = readFileSync(
       join(root, "workers/ubuntu/inject.sh"),
       "utf8",
     );
@@ -23,7 +23,7 @@ describe("iso inject scripts", () => {
   });
 
   it("fedora injector embeds /isomill via mkksiso", () => {
-    const sh = require("node:fs").readFileSync(
+    const sh = readFileSync(
       join(root, "workers/fedora/inject.sh"),
       "utf8",
     );

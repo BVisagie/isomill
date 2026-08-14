@@ -32,6 +32,8 @@ The GitHub Pages demo is the full builder with a **live Source Graph**. Generate
 
 You should be able to view the demo site here: [View Demo Site ↗](https://bvisagie.github.io/isomill/)
 
+Pull requests from this repository get a temporary preview at `/pr-preview/pr-<number>/`. The workflow comments the URL on the PR and removes the preview when the PR closes. Those URLs resolve once GitHub Pages is set to **Deploy from a branch** (`gh-pages` / root). Production still deploys via Actions until that switch; flip it after `main` has mirrored the live demo onto `gh-pages`.
+
 ## Build a real ISO
 
 You need Docker (a Linux VM on Mac/Windows — the worker is always Linux).

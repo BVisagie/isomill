@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "oses": {
     "fedora-44": {
       "distribution": "fedora",
@@ -653,6 +653,138 @@
     }
   },
   "applications": [
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "group": "browsers",
+      "license": "first-party",
+      "publisher": "Mozilla",
+      "icon": "firefox.svg",
+      "iconSource": "packages/catalogue/icons/firefox.svg",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
+      "note": "Fedora Workstation already includes Firefox. On Ubuntu the archive package is a Snap stub; selecting this installs Mozilla's official .deb and removes the Snap.",
+      "targets": {
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "firefox"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "firefox"
+          ],
+          "vendor": {
+            "publisher": "Mozilla",
+            "repoUrl": "https://packages.mozilla.org/apt",
+            "keyUrl": "https://packages.mozilla.org/apt/repo-signing-key.gpg",
+            "keyDocsUrl": "https://support.mozilla.org/kb/install-firefox-linux",
+            "repoFile": "deb [arch={arch} signed-by=/etc/apt/keyrings/firefox.asc] https://packages.mozilla.org/apt mozilla main",
+            "aptPin": {
+              "origin": "packages.mozilla.org",
+              "priority": 1000
+            },
+            "removeSnaps": [
+              "firefox"
+            ]
+          }
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "firefox"
+          ],
+          "vendor": {
+            "publisher": "Mozilla",
+            "repoUrl": "https://packages.mozilla.org/apt",
+            "keyUrl": "https://packages.mozilla.org/apt/repo-signing-key.gpg",
+            "keyDocsUrl": "https://support.mozilla.org/kb/install-firefox-linux",
+            "repoFile": "deb [arch={arch} signed-by=/etc/apt/keyrings/firefox.asc] https://packages.mozilla.org/apt mozilla main",
+            "aptPin": {
+              "origin": "packages.mozilla.org",
+              "priority": 1000
+            },
+            "removeSnaps": [
+              "firefox"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "chromium",
+      "name": "Chromium",
+      "group": "browsers",
+      "license": "first-party",
+      "publisher": "Chromium",
+      "icon": "chromium.svg",
+      "iconSource": "packages/catalogue/icons/chromium.svg",
+      "iconLicense": "catalogue glyph; no public official mark",
+      "note": "Selecting this without Firefox drops the desktop's default Firefox. On Ubuntu, Chromium in the archive is a Snap stub, so this tile is Fedora-only.",
+      "unavailableReason": "Ubuntu's Chromium is a Snap stub. isomill does not install snaps; use Firefox or Brave Origin.",
+      "targets": {
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "chromium"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        }
+      }
+    },
+    {
+      "id": "brave-origin",
+      "name": "Brave Origin",
+      "group": "browsers",
+      "license": "vendor",
+      "publisher": "Brave",
+      "icon": "brave-origin.svg",
+      "iconSource": "packages/catalogue/icons/brave-origin.svg",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
+      "note": "Brave's stripped-down first-party browser (no wallet, VPN, or AI). Free on Linux. Selecting this without Firefox drops the desktop's default Firefox.",
+      "targets": {
+        "fedora-44": {
+          "sourceClass": "vendor",
+          "packages": [
+            "brave-origin"
+          ],
+          "vendor": {
+            "publisher": "Brave",
+            "repoUrl": "https://brave-browser-rpm-release.s3.brave.com/{arch}",
+            "keyUrl": "https://brave-browser-rpm-release.s3.brave.com/brave-core.asc",
+            "keyDocsUrl": "https://brave.com/origin/linux/"
+          }
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "brave-origin"
+          ],
+          "vendor": {
+            "publisher": "Brave",
+            "repoUrl": "https://brave-browser-apt-release.s3.brave.com",
+            "keyUrl": "https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg",
+            "keyDocsUrl": "https://brave.com/origin/linux/",
+            "repoFile": "deb [arch={arch} signed-by=/etc/apt/keyrings/brave-origin.asc] https://brave-browser-apt-release.s3.brave.com/ stable main"
+          }
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "brave-origin"
+          ],
+          "vendor": {
+            "publisher": "Brave",
+            "repoUrl": "https://brave-browser-apt-release.s3.brave.com",
+            "keyUrl": "https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg",
+            "keyDocsUrl": "https://brave.com/origin/linux/",
+            "repoFile": "deb [arch={arch} signed-by=/etc/apt/keyrings/brave-origin.asc] https://brave-browser-apt-release.s3.brave.com/ stable main"
+          }
+        }
+      }
+    },
     {
       "id": "vscode",
       "name": "Visual Studio Code",

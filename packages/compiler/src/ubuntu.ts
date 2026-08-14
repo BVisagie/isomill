@@ -8,6 +8,7 @@ import {
   getApplication,
   getOs,
   getTarget,
+  shouldDropDistroFirefox,
 } from "@isomill/catalogue";
 import {
   assertAutoinstallSafety,
@@ -54,7 +55,7 @@ export function generateAutoinstall(
       continue;
     }
     if (target.sourceClass === "vendor" && target.vendor) {
-      assertHttpsUrl(target.vendor.repoUrl, "repo");
+      assertHttpsUrl(target.vendor.repoUrl.replaceAll("{arch}", "amd64"), "repo");
       assertHttpsUrl(target.vendor.keyUrl, "key");
       const arch = aptArch(definition.os.architecture);
       const source = (
@@ -71,6 +72,30 @@ export function generateAutoinstall(
       late.push(
         `bash -c 'echo "${source}" > /target/etc/apt/sources.list.d/${id}.list'`,
       );
+      if (target.vendor.aptPin) {
+        const pin = target.vendor.aptPin;
+        const originHost = new URL(target.vendor.repoUrl).hostname;
+        if (pin.origin !== originHost) {
+          throw new Error(
+            `aptPin.origin ${pin.origin} must match vendor repo host ${originHost}`,
+          );
+        }
+        assertSafeToken(pin.origin, "apt pin origin");
+        const pinPackage = pin.package ?? "*";
+        if (pinPackage !== "*") assertSafeToken(pinPackage, "apt pin package");
+        late.push(
+          `curtin in-target --target=/target -- mkdir -p /etc/apt/preferences.d`,
+        );
+        late.push(
+          `bash -c 'printf "Package: ${pinPackage}\\nPin: origin ${pin.origin}\\nPin-Priority: ${pin.priority}\\n" > /target/etc/apt/preferences.d/${id}'`,
+        );
+      }
+      for (const snap of target.vendor.removeSnaps ?? []) {
+        assertSafeToken(snap, "snap");
+        late.push(
+          `curtin in-target --target=/target -- bash -c 'snap remove ${snap} >/dev/null 2>&1 || true'`,
+        );
+      }
       const pkgs = target.packages.map((p) => {
         assertSafeToken(p, "package");
         return p;
@@ -99,6 +124,15 @@ export function generateAutoinstall(
     }
     for (const unit of t?.units ?? []) units.push(unit);
     if (sid === "ssh") installSsh = true;
+  }
+
+  if (shouldDropDistroFirefox(definition, cat)) {
+    late.push(
+      `curtin in-target --target=/target -- bash -c 'snap remove firefox >/dev/null 2>&1 || true'`,
+    );
+    late.push(
+      `curtin in-target --target=/target -- bash -c 'apt-get purge -y firefox >/dev/null 2>&1 || true'`,
+    );
   }
 
   late.push("mkdir -p /target/etc/isomill");

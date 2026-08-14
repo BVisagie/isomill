@@ -58,6 +58,34 @@ describe("fedora kickstart", () => {
     expect(ks).toContain("download.docker.com/linux/fedora");
   });
 
+  it("installs Brave Origin from the first-party RPM repo for the machine arch", () => {
+    const ks = generateKickstart({
+      ...sample,
+      applications: ["brave-origin"],
+      os: { ...sample.os, architecture: "aarch64" },
+    });
+    expect(ks).toContain(
+      "repo --name=braveorigin --baseurl=https://brave-browser-rpm-release.s3.brave.com/aarch64",
+    );
+    expect(ks).toContain("brave-origin");
+    expect(ks).toContain("\n-firefox\n");
+  });
+
+  it("keeps Fedora Workstation Firefox unless another browser is selected", () => {
+    const withFirefox = generateKickstart({
+      ...sample,
+      applications: ["firefox"],
+    });
+    expect(withFirefox).toContain("\nfirefox\n");
+    expect(withFirefox).not.toContain("\n-firefox\n");
+
+    const unchanged = generateKickstart({
+      ...sample,
+      applications: ["git"],
+    });
+    expect(unchanged).not.toContain("\n-firefox\n");
+  });
+
   it("matches the golden snapshot", () => {
     expect(generateKickstart(sample)).toMatchSnapshot();
   });

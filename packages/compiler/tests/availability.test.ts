@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { expandDefinition } from "@isomill/catalogue";
 import { prepareDefinition } from "../src/common.js";
 
 describe("unavailable apps", () => {
@@ -25,6 +24,16 @@ describe("unavailable apps", () => {
     });
     expect(def.applications).toContain("ghostty");
   });
-});
 
-void expandDefinition;
+  it("refuses Chromium on Ubuntu because the archive package is a Snap stub", () => {
+    expect(() =>
+      prepareDefinition({
+        schemaVersion: 1,
+        os: { distribution: "ubuntu", release: "24.04", architecture: "x86_64" },
+        desktop: { environment: "gnome" },
+        locale: { language: "en_US", keyboard: "us", timezone: "UTC" },
+        applications: ["chromium"],
+      }),
+    ).toThrow(/Snap/);
+  });
+});
