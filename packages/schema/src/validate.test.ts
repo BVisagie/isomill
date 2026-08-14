@@ -23,6 +23,25 @@ describe("machine definition schema", () => {
     ).not.toThrow();
   });
 
+  it("accepts ARM 64-bit architecture", () => {
+    expect(() =>
+      validateMachineDefinition({
+        schemaVersion: 1,
+        os: {
+          distribution: "ubuntu",
+          release: "26.04",
+          architecture: "aarch64",
+        },
+        desktop: { environment: "gnome" },
+        locale: {
+          language: "en_GB",
+          keyboard: "gb",
+          timezone: "Europe/Amsterdam",
+        },
+      }),
+    ).not.toThrow();
+  });
+
   it("rejects identity and storage fields", () => {
     expect(() =>
       validateMachineDefinition({

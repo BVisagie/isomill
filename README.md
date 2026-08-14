@@ -9,7 +9,7 @@ Identity, encryption, and storage stay in the install shield. Packages resolve a
 ## What you get
 
 - A **Machine Definition** (JSON) — OS, desktop, locale, catalogue apps, services. No users, no passwords, no disk layout.
-- A **thin installer ISO** — official Fedora Everything netinst or Ubuntu 24.04 Desktop, with Kickstart or Autoinstall injected. Anaconda/Subiquity still run on the machine you install.
+- A **thin installer ISO** — official Fedora Everything netinst or Ubuntu Desktop (24.04 or 26.04 LTS), Intel / AMD 64-bit or ARM 64-bit, with Kickstart or Autoinstall injected. Anaconda/Subiquity still run on the machine you install.
 - A **Source Graph** — a pre-commit audit of who supplies each thing. Official repository, first-party vendor, and npm allowlist are **unequal** badges.
 - **`/isomill/` on the ISO** (copied to `/etc/isomill/` after install) — README, sources, provenance, the definition, the exact install config, and the catalogue lock. Mount the ISO offline and you can still answer what this is.
 
@@ -59,7 +59,7 @@ Never: COPR, PPAs, community GitHub debs, Snap/Flatpak sources, `curl \| bash` i
 
 ## Hard safety
 
-Generated Kickstart/Autoinstall must never `zerombr` / `clearpart` / `autopart` or set identity. Ubuntu 24.04 Autoinstall uses `interactive-sections: [identity, storage]`. Fedora leaves Anaconda spokes in place.
+Generated Kickstart/Autoinstall must never `zerombr` / `clearpart` / `autopart` or set identity. Ubuntu Autoinstall uses `interactive-sections: [identity, storage]`. Fedora leaves Anaconda spokes in place.
 
 The generator is the injection boundary: only schema-validated fields and catalogue ids enter install config. The privileged worker has **no direct internet**; outbound HTTP(S) goes through an egress-proxy sidecar whose allowlist is generated from the catalogue.
 

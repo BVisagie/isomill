@@ -1,5 +1,5 @@
 import type { Catalogue, MachineDefinition, Provenance } from "@isomill/schema";
-import { catalogue as defaultCatalogue } from "@isomill/catalogue";
+import { catalogue as defaultCatalogue, getMedia } from "@isomill/catalogue";
 import { generateKickstart } from "./fedora.js";
 import { generateAutoinstall } from "./ubuntu.js";
 import {
@@ -48,7 +48,7 @@ export function compileDefinition(
     installCfg = auto.userData;
   }
 
-  const media = cat.oses[`${definition.os.distribution}-${definition.os.release}`]!.media;
+  const media = getMedia(definition, cat);
   const provenance = buildProvenance(
     {
       definition,
@@ -89,6 +89,7 @@ export function compileDefinition(
         version: cat.version,
         digest: catalogueDigest(cat),
         os: `${definition.os.distribution}-${definition.os.release}`,
+        architecture: definition.os.architecture,
         applications: definition.applications,
       },
       null,

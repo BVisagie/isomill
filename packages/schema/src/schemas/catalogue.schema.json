@@ -27,7 +27,6 @@
       "required": [
         "distribution",
         "release",
-        "architecture",
         "displayName",
         "publisher",
         "media",
@@ -36,33 +35,42 @@
       "properties": {
         "distribution": { "enum": ["fedora", "ubuntu"] },
         "release": { "type": "string" },
-        "architecture": { "enum": ["x86_64"] },
         "displayName": { "type": "string" },
         "publisher": { "type": "string" },
         "icon": { "type": "string" },
+        "ubuntuCodename": { "type": "string" },
         "locales": { "$ref": "#/$defs/localeCatalog" },
         "media": {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "kind",
-            "filename",
-            "downloadUrl",
-            "checksumUrl",
-            "gpgKeyUrl",
-            "keyDocsUrl"
-          ],
+          "required": ["x86_64", "aarch64"],
           "properties": {
-            "kind": { "enum": ["everything-netinst", "desktop"] },
-            "filename": { "type": "string" },
-            "downloadUrl": { "type": "string", "format": "uri" },
-            "checksumUrl": { "type": "string", "format": "uri" },
-            "checksumSignatureUrl": { "type": "string", "format": "uri" },
-            "gpgKeyUrl": { "type": "string", "format": "uri" },
-            "keyDocsUrl": { "type": "string", "format": "uri" },
-            "lastObservedFingerprint": { "type": "string" }
+            "x86_64": { "$ref": "#/$defs/osMedia" },
+            "aarch64": { "$ref": "#/$defs/osMedia" }
           }
         }
+      }
+    },
+    "osMedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "filename",
+        "downloadUrl",
+        "checksumUrl",
+        "gpgKeyUrl",
+        "keyDocsUrl"
+      ],
+      "properties": {
+        "kind": { "enum": ["everything-netinst", "desktop"] },
+        "filename": { "type": "string" },
+        "downloadUrl": { "type": "string", "format": "uri" },
+        "checksumUrl": { "type": "string", "format": "uri" },
+        "checksumSignatureUrl": { "type": "string", "format": "uri" },
+        "gpgKeyUrl": { "type": "string", "format": "uri" },
+        "keyDocsUrl": { "type": "string", "format": "uri" },
+        "lastObservedFingerprint": { "type": "string" }
       }
     },
     "localeCatalog": {

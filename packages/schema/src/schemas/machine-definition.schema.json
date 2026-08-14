@@ -26,7 +26,7 @@
         },
         "architecture": {
           "type": "string",
-          "enum": ["x86_64"]
+          "enum": ["x86_64", "aarch64"]
         }
       }
     },

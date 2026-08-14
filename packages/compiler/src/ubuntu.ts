@@ -1,6 +1,7 @@
 import YAML from "yaml";
 import type { Catalogue, MachineDefinition } from "@isomill/schema";
 import {
+  aptArch,
   assertHttpsUrl,
   assertSafeToken,
   catalogue as defaultCatalogue,
@@ -55,9 +56,11 @@ export function generateAutoinstall(
     if (target.sourceClass === "vendor" && target.vendor) {
       assertHttpsUrl(target.vendor.repoUrl, "repo");
       assertHttpsUrl(target.vendor.keyUrl, "key");
-      const source =
+      const arch = aptArch(definition.os.architecture);
+      const source = (
         target.vendor.repoFile ??
-        `deb [arch=amd64] ${target.vendor.repoUrl} stable main`;
+        `deb [arch={arch}] ${target.vendor.repoUrl} stable main`
+      ).replaceAll("{arch}", arch);
       assertSafeToken(id, "id");
       late.push(
         `curtin in-target --target=/target -- mkdir -p /etc/apt/keyrings`,

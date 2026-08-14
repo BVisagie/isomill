@@ -18,10 +18,12 @@ const add = (url) => {
 };
 
 for (const os of Object.values(catalogue.oses)) {
-  add(os.media.downloadUrl);
-  add(os.media.checksumUrl);
-  if (os.media.checksumSignatureUrl) add(os.media.checksumSignatureUrl);
-  add(os.media.gpgKeyUrl);
+  for (const media of Object.values(os.media)) {
+    add(media.downloadUrl);
+    add(media.checksumUrl);
+    if (media.checksumSignatureUrl) add(media.checksumSignatureUrl);
+    add(media.gpgKeyUrl);
+  }
 }
 for (const app of catalogue.applications) {
   for (const target of Object.values(app.targets)) {

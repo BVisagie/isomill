@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { BuildStatus, MachineDefinition } from "@isomill/schema";
+import type { Architecture, BuildStatus, MachineDefinition } from "@isomill/schema";
 import { compileDefinition } from "@isomill/compiler/preview";
-import { catalogue, buildSourceGraph } from "@isomill/catalogue";
+import { catalogue, buildSourceGraph, osChoices, archLabel } from "@isomill/catalogue";
 import { AppTiles } from "./AppTiles";
 import { GitHubLink, SOURCE_REPO } from "./GitHubLink";
 import { ProvenanceDialog } from "./ProvenanceDialog";
@@ -71,8 +71,8 @@ export function Builder() {
     [def, isoVerified],
   );
 
-  function setOs(distribution: "fedora" | "ubuntu") {
-    const release = distribution === "fedora" ? "44" : "24.04";
+  function setOsChoice(distribution: "fedora" | "ubuntu", release: string) {
+    setIsoVerified(false);
     setDef({
       ...def,
       os: { ...def.os, distribution, release },
@@ -81,6 +81,11 @@ export function Builder() {
         return Boolean(app?.targets[`${distribution}-${release}`]);
       }),
     });
+  }
+
+  function setArchitecture(architecture: Architecture) {
+    setIsoVerified(false);
+    setDef({ ...def, os: { ...def.os, architecture } });
   }
 
   function toggleApp(id: string) {
@@ -182,21 +187,37 @@ export function Builder() {
           <div className="panel">
             <h2>Machine Definition</h2>
             <p className="note">
-              Network install: Fedora Everything netinst or Ubuntu 24.04
-              Desktop. We are not an OS mirror. GNOME only in v1. No users,
-              passwords, or partitioning here.
+              Network install: Fedora Everything netinst or Ubuntu Desktop.
+              Intel / AMD 64-bit and ARM 64-bit. We are not an OS mirror. GNOME
+              only in v1. No users, passwords, or partitioning here.
             </p>
             <div className="row">
               <label className="field">
                 Distribution
                 <select
-                  value={def.os.distribution}
+                  value={`${def.os.distribution}-${def.os.release}`}
+                  onChange={(e) => {
+                    const choice = osChoices().find((o) => o.key === e.target.value);
+                    if (choice) setOsChoice(choice.distribution, choice.release);
+                  }}
+                >
+                  {osChoices().map((o) => (
+                    <option key={o.key} value={o.key}>
+                      {o.displayName}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="field">
+                Architecture
+                <select
+                  value={def.os.architecture}
                   onChange={(e) =>
-                    setOs(e.target.value as "fedora" | "ubuntu")
+                    setArchitecture(e.target.value as Architecture)
                   }
                 >
-                  <option value="fedora">Fedora 44</option>
-                  <option value="ubuntu">Ubuntu 24.04 LTS</option>
+                  <option value="x86_64">{archLabel("x86_64")}</option>
+                  <option value="aarch64">{archLabel("aarch64")}</option>
                 </select>
               </label>
               <label className="field">

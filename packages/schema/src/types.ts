@@ -1,5 +1,5 @@
 export type Distribution = "fedora" | "ubuntu";
-export type Architecture = "x86_64";
+export type Architecture = "x86_64" | "aarch64";
 export type DesktopEnvironment = "gnome";
 export type SourceClass = "distro" | "vendor" | "npm";
 export type AppGroup =
@@ -77,12 +77,12 @@ export interface OsMedia {
 export interface OsEntry {
   distribution: Distribution;
   release: string;
-  architecture: Architecture;
   displayName: string;
   publisher: string;
   icon?: string;
+  ubuntuCodename?: string;
   locales: LocaleCatalog;
-  media: OsMedia;
+  media: Record<Architecture, OsMedia>;
 }
 
 export interface VendorSource {

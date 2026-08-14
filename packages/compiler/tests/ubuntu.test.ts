@@ -81,4 +81,21 @@ describe("ubuntu 24.04 autoinstall", () => {
   it("matches the golden snapshot", () => {
     expect(generateAutoinstall(sample).userData).toMatchSnapshot();
   });
+
+  it("substitutes arm64 into vendor apt lines", () => {
+    const { userData } = generateAutoinstall({
+      ...sample,
+      os: { ...sample.os, architecture: "aarch64" },
+    });
+    expect(userData).toContain("deb [arch=arm64] https://packages.microsoft.com/repos/code");
+    expect(userData).not.toContain("arch=amd64");
+  });
+
+  it("compiles Ubuntu 26.04 LTS", () => {
+    const { userData } = generateAutoinstall({
+      ...sample,
+      os: { distribution: "ubuntu", release: "26.04", architecture: "x86_64" },
+    });
+    expect(userData).toContain("deb [arch=amd64] https://download.docker.com/linux/ubuntu resolute stable");
+  });
 });

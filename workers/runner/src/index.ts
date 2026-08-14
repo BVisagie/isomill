@@ -5,7 +5,7 @@ import { dirname, join } from "node:path";
 import { pipeline } from "node:stream/promises";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
-import { catalogue } from "@isomill/catalogue";
+import { catalogue, getMedia } from "@isomill/catalogue";
 import { compileDefinition, writeIsomillTree } from "@isomill/compiler";
 import {
   resolveOfficialIso,
@@ -65,16 +65,17 @@ async function handleJob(job: {
   const definition = job.definition;
   const os = catalogue.oses[`${definition.os.distribution}-${definition.os.release}`];
   if (!os) throw new Error("unsupported os");
+  const media = getMedia(definition);
 
   try {
     const resolved = await resolveOfficialIso(
-      os.media,
+      media,
       os.publisher,
       fetch,
       { fingerprint: job.lastObservedFingerprint ?? undefined },
     );
 
-    const cachePath = join(CACHE, os.media.filename);
+    const cachePath = join(CACHE, media.filename);
     let needFetch = true;
     try {
       const bytes = await readFile(cachePath);
@@ -97,7 +98,7 @@ async function handleJob(job: {
         key_url: resolved.gpgKeyUrl,
         observed_fingerprint: resolved.observedKey.fingerprint,
         publisher: os.publisher,
-        key_docs_url: os.media.keyDocsUrl,
+        key_docs_url: media.keyDocsUrl,
       }),
     });
 

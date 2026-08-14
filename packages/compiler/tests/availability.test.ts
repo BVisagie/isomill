@@ -14,6 +14,17 @@ describe("unavailable apps", () => {
       }),
     ).toThrow(/Not in official/);
   });
+
+  it("allows Ghostty on Ubuntu 26.04", () => {
+    const def = prepareDefinition({
+      schemaVersion: 1,
+      os: { distribution: "ubuntu", release: "26.04", architecture: "aarch64" },
+      desktop: { environment: "gnome" },
+      locale: { language: "en_US", keyboard: "us", timezone: "UTC" },
+      applications: ["ghostty"],
+    });
+    expect(def.applications).toContain("ghostty");
+  });
 });
 
 void expandDefinition;

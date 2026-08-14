@@ -40,8 +40,10 @@ export function prepareDefinition(
       `timezone ${input.locale.timezone} is not offered by ${os.displayName}`,
     );
   }
-  if (input.os.architecture !== os.architecture) {
-    throw new CompilerError("v1 only supports x86_64");
+  if (!os.media[input.os.architecture]) {
+    throw new CompilerError(
+      `${os.displayName} does not offer ${input.os.architecture}`,
+    );
   }
   return expandDefinition(input, cat);
 }

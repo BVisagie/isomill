@@ -12,11 +12,11 @@
   "upstreamIso": {
     "distribution": "fedora",
     "release": "44",
-    "filename": "Fedora-Everything-netinst-x86_64-44-1.5.iso",
-    "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.5.iso",
+    "filename": "Fedora-Everything-netinst-x86_64-44-1.7.iso",
+    "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.7.iso",
     "checksumAlgorithm": "sha256",
     "checksumValue": "not-verified",
-    "checksumUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-x86_64-44-1.5-CHECKSUM",
+    "checksumUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-44-1.7-x86_64-CHECKSUM",
     "signatureVerified": false,
     "gpgKeyUrl": "https://fedoraproject.org/fedora.gpg"
   },

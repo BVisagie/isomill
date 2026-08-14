@@ -1,44 +1,179 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "oses": {
     "fedora-44": {
       "distribution": "fedora",
       "release": "44",
-      "architecture": "x86_64",
       "displayName": "Fedora 44",
       "publisher": "Fedora",
       "icon": "fedora.svg",
       "locales": {
         "languages": [
-          { "id": "en_US", "label": "English (US)", "fedoraLang": "en_US.UTF-8", "ubuntuLocale": "en_US.UTF-8" },
-          { "id": "en_GB", "label": "English (UK)", "fedoraLang": "en_GB.UTF-8", "ubuntuLocale": "en_GB.UTF-8" },
-          { "id": "nl_NL", "label": "Dutch", "fedoraLang": "nl_NL.UTF-8", "ubuntuLocale": "nl_NL.UTF-8" },
-          { "id": "de_DE", "label": "German", "fedoraLang": "de_DE.UTF-8", "ubuntuLocale": "de_DE.UTF-8" },
-          { "id": "fr_FR", "label": "French", "fedoraLang": "fr_FR.UTF-8", "ubuntuLocale": "fr_FR.UTF-8" },
-          { "id": "es_ES", "label": "Spanish", "fedoraLang": "es_ES.UTF-8", "ubuntuLocale": "es_ES.UTF-8" },
-          { "id": "it_IT", "label": "Italian", "fedoraLang": "it_IT.UTF-8", "ubuntuLocale": "it_IT.UTF-8" },
-          { "id": "pt_BR", "label": "Portuguese (Brazil)", "fedoraLang": "pt_BR.UTF-8", "ubuntuLocale": "pt_BR.UTF-8" },
-          { "id": "sv_SE", "label": "Swedish", "fedoraLang": "sv_SE.UTF-8", "ubuntuLocale": "sv_SE.UTF-8" },
-          { "id": "pl_PL", "label": "Polish", "fedoraLang": "pl_PL.UTF-8", "ubuntuLocale": "pl_PL.UTF-8" },
-          { "id": "ja_JP", "label": "Japanese", "fedoraLang": "ja_JP.UTF-8", "ubuntuLocale": "ja_JP.UTF-8" },
-          { "id": "zh_CN", "label": "Chinese (Simplified)", "fedoraLang": "zh_CN.UTF-8", "ubuntuLocale": "zh_CN.UTF-8" },
-          { "id": "ko_KR", "label": "Korean", "fedoraLang": "ko_KR.UTF-8", "ubuntuLocale": "ko_KR.UTF-8" },
-          { "id": "ru_RU", "label": "Russian", "fedoraLang": "ru_RU.UTF-8", "ubuntuLocale": "ru_RU.UTF-8" }
+          {
+            "id": "en_US",
+            "label": "English (US)",
+            "fedoraLang": "en_US.UTF-8",
+            "ubuntuLocale": "en_US.UTF-8"
+          },
+          {
+            "id": "en_GB",
+            "label": "English (UK)",
+            "fedoraLang": "en_GB.UTF-8",
+            "ubuntuLocale": "en_GB.UTF-8"
+          },
+          {
+            "id": "nl_NL",
+            "label": "Dutch",
+            "fedoraLang": "nl_NL.UTF-8",
+            "ubuntuLocale": "nl_NL.UTF-8"
+          },
+          {
+            "id": "de_DE",
+            "label": "German",
+            "fedoraLang": "de_DE.UTF-8",
+            "ubuntuLocale": "de_DE.UTF-8"
+          },
+          {
+            "id": "fr_FR",
+            "label": "French",
+            "fedoraLang": "fr_FR.UTF-8",
+            "ubuntuLocale": "fr_FR.UTF-8"
+          },
+          {
+            "id": "es_ES",
+            "label": "Spanish",
+            "fedoraLang": "es_ES.UTF-8",
+            "ubuntuLocale": "es_ES.UTF-8"
+          },
+          {
+            "id": "it_IT",
+            "label": "Italian",
+            "fedoraLang": "it_IT.UTF-8",
+            "ubuntuLocale": "it_IT.UTF-8"
+          },
+          {
+            "id": "pt_BR",
+            "label": "Portuguese (Brazil)",
+            "fedoraLang": "pt_BR.UTF-8",
+            "ubuntuLocale": "pt_BR.UTF-8"
+          },
+          {
+            "id": "sv_SE",
+            "label": "Swedish",
+            "fedoraLang": "sv_SE.UTF-8",
+            "ubuntuLocale": "sv_SE.UTF-8"
+          },
+          {
+            "id": "pl_PL",
+            "label": "Polish",
+            "fedoraLang": "pl_PL.UTF-8",
+            "ubuntuLocale": "pl_PL.UTF-8"
+          },
+          {
+            "id": "ja_JP",
+            "label": "Japanese",
+            "fedoraLang": "ja_JP.UTF-8",
+            "ubuntuLocale": "ja_JP.UTF-8"
+          },
+          {
+            "id": "zh_CN",
+            "label": "Chinese (Simplified)",
+            "fedoraLang": "zh_CN.UTF-8",
+            "ubuntuLocale": "zh_CN.UTF-8"
+          },
+          {
+            "id": "ko_KR",
+            "label": "Korean",
+            "fedoraLang": "ko_KR.UTF-8",
+            "ubuntuLocale": "ko_KR.UTF-8"
+          },
+          {
+            "id": "ru_RU",
+            "label": "Russian",
+            "fedoraLang": "ru_RU.UTF-8",
+            "ubuntuLocale": "ru_RU.UTF-8"
+          }
         ],
         "keyboards": [
-          { "id": "us", "label": "English (US)", "fedoraKeymap": "us", "ubuntuLayout": "us" },
-          { "id": "gb", "label": "English (UK)", "fedoraKeymap": "gb", "ubuntuLayout": "gb" },
-          { "id": "nl", "label": "Dutch", "fedoraKeymap": "us", "ubuntuLayout": "us", "ubuntuVariant": "intl" },
-          { "id": "de", "label": "German", "fedoraKeymap": "de", "ubuntuLayout": "de" },
-          { "id": "fr", "label": "French", "fedoraKeymap": "fr", "ubuntuLayout": "fr" },
-          { "id": "es", "label": "Spanish", "fedoraKeymap": "es", "ubuntuLayout": "es" },
-          { "id": "it", "label": "Italian", "fedoraKeymap": "it", "ubuntuLayout": "it" },
-          { "id": "br", "label": "Portuguese (Brazil)", "fedoraKeymap": "br-abnt2", "ubuntuLayout": "br" },
-          { "id": "se", "label": "Swedish", "fedoraKeymap": "se", "ubuntuLayout": "se" },
-          { "id": "pl", "label": "Polish", "fedoraKeymap": "pl", "ubuntuLayout": "pl" },
-          { "id": "jp", "label": "Japanese", "fedoraKeymap": "jp", "ubuntuLayout": "jp" },
-          { "id": "kr", "label": "Korean", "fedoraKeymap": "kr", "ubuntuLayout": "kr" },
-          { "id": "ru", "label": "Russian", "fedoraKeymap": "ru", "ubuntuLayout": "ru" }
+          {
+            "id": "us",
+            "label": "English (US)",
+            "fedoraKeymap": "us",
+            "ubuntuLayout": "us"
+          },
+          {
+            "id": "gb",
+            "label": "English (UK)",
+            "fedoraKeymap": "gb",
+            "ubuntuLayout": "gb"
+          },
+          {
+            "id": "nl",
+            "label": "Dutch",
+            "fedoraKeymap": "us",
+            "ubuntuLayout": "us",
+            "ubuntuVariant": "intl"
+          },
+          {
+            "id": "de",
+            "label": "German",
+            "fedoraKeymap": "de",
+            "ubuntuLayout": "de"
+          },
+          {
+            "id": "fr",
+            "label": "French",
+            "fedoraKeymap": "fr",
+            "ubuntuLayout": "fr"
+          },
+          {
+            "id": "es",
+            "label": "Spanish",
+            "fedoraKeymap": "es",
+            "ubuntuLayout": "es"
+          },
+          {
+            "id": "it",
+            "label": "Italian",
+            "fedoraKeymap": "it",
+            "ubuntuLayout": "it"
+          },
+          {
+            "id": "br",
+            "label": "Portuguese (Brazil)",
+            "fedoraKeymap": "br-abnt2",
+            "ubuntuLayout": "br"
+          },
+          {
+            "id": "se",
+            "label": "Swedish",
+            "fedoraKeymap": "se",
+            "ubuntuLayout": "se"
+          },
+          {
+            "id": "pl",
+            "label": "Polish",
+            "fedoraKeymap": "pl",
+            "ubuntuLayout": "pl"
+          },
+          {
+            "id": "jp",
+            "label": "Japanese",
+            "fedoraKeymap": "jp",
+            "ubuntuLayout": "jp"
+          },
+          {
+            "id": "kr",
+            "label": "Korean",
+            "fedoraKeymap": "kr",
+            "ubuntuLayout": "kr"
+          },
+          {
+            "id": "ru",
+            "label": "Russian",
+            "fedoraKeymap": "ru",
+            "ubuntuLayout": "ru"
+          }
         ],
         "timezones": [
           "UTC",
@@ -62,53 +197,200 @@
         ]
       },
       "media": {
-        "kind": "everything-netinst",
-        "filename": "Fedora-Everything-netinst-x86_64-44-1.5.iso",
-        "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.5.iso",
-        "checksumUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-x86_64-44-1.5-CHECKSUM",
-        "checksumSignatureUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-x86_64-44-1.5-CHECKSUM",
-        "gpgKeyUrl": "https://fedoraproject.org/fedora.gpg",
-        "keyDocsUrl": "https://fedoraproject.org/security/"
+        "x86_64": {
+          "kind": "everything-netinst",
+          "filename": "Fedora-Everything-netinst-x86_64-44-1.7.iso",
+          "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.7.iso",
+          "checksumUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-44-1.7-x86_64-CHECKSUM",
+          "checksumSignatureUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-44-1.7-x86_64-CHECKSUM",
+          "gpgKeyUrl": "https://fedoraproject.org/fedora.gpg",
+          "keyDocsUrl": "https://fedoraproject.org/security/"
+        },
+        "aarch64": {
+          "kind": "everything-netinst",
+          "filename": "Fedora-Everything-netinst-aarch64-44-1.7.iso",
+          "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/aarch64/iso/Fedora-Everything-netinst-aarch64-44-1.7.iso",
+          "checksumUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/aarch64/iso/Fedora-Everything-44-1.7-aarch64-CHECKSUM",
+          "checksumSignatureUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/aarch64/iso/Fedora-Everything-44-1.7-aarch64-CHECKSUM",
+          "gpgKeyUrl": "https://fedoraproject.org/fedora.gpg",
+          "keyDocsUrl": "https://fedoraproject.org/security/"
+        }
       }
     },
     "ubuntu-24.04": {
       "distribution": "ubuntu",
       "release": "24.04",
-      "architecture": "x86_64",
       "displayName": "Ubuntu 24.04 LTS",
       "publisher": "Ubuntu",
       "icon": "ubuntu.svg",
+      "ubuntuCodename": "noble",
       "locales": {
         "languages": [
-          { "id": "en_US", "label": "English (US)", "fedoraLang": "en_US.UTF-8", "ubuntuLocale": "en_US.UTF-8" },
-          { "id": "en_GB", "label": "English (UK)", "fedoraLang": "en_GB.UTF-8", "ubuntuLocale": "en_GB.UTF-8" },
-          { "id": "nl_NL", "label": "Dutch", "fedoraLang": "nl_NL.UTF-8", "ubuntuLocale": "nl_NL.UTF-8" },
-          { "id": "de_DE", "label": "German", "fedoraLang": "de_DE.UTF-8", "ubuntuLocale": "de_DE.UTF-8" },
-          { "id": "fr_FR", "label": "French", "fedoraLang": "fr_FR.UTF-8", "ubuntuLocale": "fr_FR.UTF-8" },
-          { "id": "es_ES", "label": "Spanish", "fedoraLang": "es_ES.UTF-8", "ubuntuLocale": "es_ES.UTF-8" },
-          { "id": "it_IT", "label": "Italian", "fedoraLang": "it_IT.UTF-8", "ubuntuLocale": "it_IT.UTF-8" },
-          { "id": "pt_BR", "label": "Portuguese (Brazil)", "fedoraLang": "pt_BR.UTF-8", "ubuntuLocale": "pt_BR.UTF-8" },
-          { "id": "sv_SE", "label": "Swedish", "fedoraLang": "sv_SE.UTF-8", "ubuntuLocale": "sv_SE.UTF-8" },
-          { "id": "pl_PL", "label": "Polish", "fedoraLang": "pl_PL.UTF-8", "ubuntuLocale": "pl_PL.UTF-8" },
-          { "id": "ja_JP", "label": "Japanese", "fedoraLang": "ja_JP.UTF-8", "ubuntuLocale": "ja_JP.UTF-8" },
-          { "id": "zh_CN", "label": "Chinese (Simplified)", "fedoraLang": "zh_CN.UTF-8", "ubuntuLocale": "zh_CN.UTF-8" },
-          { "id": "ko_KR", "label": "Korean", "fedoraLang": "ko_KR.UTF-8", "ubuntuLocale": "ko_KR.UTF-8" },
-          { "id": "ru_RU", "label": "Russian", "fedoraLang": "ru_RU.UTF-8", "ubuntuLocale": "ru_RU.UTF-8" }
+          {
+            "id": "en_US",
+            "label": "English (US)",
+            "fedoraLang": "en_US.UTF-8",
+            "ubuntuLocale": "en_US.UTF-8"
+          },
+          {
+            "id": "en_GB",
+            "label": "English (UK)",
+            "fedoraLang": "en_GB.UTF-8",
+            "ubuntuLocale": "en_GB.UTF-8"
+          },
+          {
+            "id": "nl_NL",
+            "label": "Dutch",
+            "fedoraLang": "nl_NL.UTF-8",
+            "ubuntuLocale": "nl_NL.UTF-8"
+          },
+          {
+            "id": "de_DE",
+            "label": "German",
+            "fedoraLang": "de_DE.UTF-8",
+            "ubuntuLocale": "de_DE.UTF-8"
+          },
+          {
+            "id": "fr_FR",
+            "label": "French",
+            "fedoraLang": "fr_FR.UTF-8",
+            "ubuntuLocale": "fr_FR.UTF-8"
+          },
+          {
+            "id": "es_ES",
+            "label": "Spanish",
+            "fedoraLang": "es_ES.UTF-8",
+            "ubuntuLocale": "es_ES.UTF-8"
+          },
+          {
+            "id": "it_IT",
+            "label": "Italian",
+            "fedoraLang": "it_IT.UTF-8",
+            "ubuntuLocale": "it_IT.UTF-8"
+          },
+          {
+            "id": "pt_BR",
+            "label": "Portuguese (Brazil)",
+            "fedoraLang": "pt_BR.UTF-8",
+            "ubuntuLocale": "pt_BR.UTF-8"
+          },
+          {
+            "id": "sv_SE",
+            "label": "Swedish",
+            "fedoraLang": "sv_SE.UTF-8",
+            "ubuntuLocale": "sv_SE.UTF-8"
+          },
+          {
+            "id": "pl_PL",
+            "label": "Polish",
+            "fedoraLang": "pl_PL.UTF-8",
+            "ubuntuLocale": "pl_PL.UTF-8"
+          },
+          {
+            "id": "ja_JP",
+            "label": "Japanese",
+            "fedoraLang": "ja_JP.UTF-8",
+            "ubuntuLocale": "ja_JP.UTF-8"
+          },
+          {
+            "id": "zh_CN",
+            "label": "Chinese (Simplified)",
+            "fedoraLang": "zh_CN.UTF-8",
+            "ubuntuLocale": "zh_CN.UTF-8"
+          },
+          {
+            "id": "ko_KR",
+            "label": "Korean",
+            "fedoraLang": "ko_KR.UTF-8",
+            "ubuntuLocale": "ko_KR.UTF-8"
+          },
+          {
+            "id": "ru_RU",
+            "label": "Russian",
+            "fedoraLang": "ru_RU.UTF-8",
+            "ubuntuLocale": "ru_RU.UTF-8"
+          }
         ],
         "keyboards": [
-          { "id": "us", "label": "English (US)", "fedoraKeymap": "us", "ubuntuLayout": "us" },
-          { "id": "gb", "label": "English (UK)", "fedoraKeymap": "gb", "ubuntuLayout": "gb" },
-          { "id": "nl", "label": "Dutch", "fedoraKeymap": "us", "ubuntuLayout": "us", "ubuntuVariant": "intl" },
-          { "id": "de", "label": "German", "fedoraKeymap": "de", "ubuntuLayout": "de" },
-          { "id": "fr", "label": "French", "fedoraKeymap": "fr", "ubuntuLayout": "fr" },
-          { "id": "es", "label": "Spanish", "fedoraKeymap": "es", "ubuntuLayout": "es" },
-          { "id": "it", "label": "Italian", "fedoraKeymap": "it", "ubuntuLayout": "it" },
-          { "id": "br", "label": "Portuguese (Brazil)", "fedoraKeymap": "br-abnt2", "ubuntuLayout": "br" },
-          { "id": "se", "label": "Swedish", "fedoraKeymap": "se", "ubuntuLayout": "se" },
-          { "id": "pl", "label": "Polish", "fedoraKeymap": "pl", "ubuntuLayout": "pl" },
-          { "id": "jp", "label": "Japanese", "fedoraKeymap": "jp", "ubuntuLayout": "jp" },
-          { "id": "kr", "label": "Korean", "fedoraKeymap": "kr", "ubuntuLayout": "kr" },
-          { "id": "ru", "label": "Russian", "fedoraKeymap": "ru", "ubuntuLayout": "ru" }
+          {
+            "id": "us",
+            "label": "English (US)",
+            "fedoraKeymap": "us",
+            "ubuntuLayout": "us"
+          },
+          {
+            "id": "gb",
+            "label": "English (UK)",
+            "fedoraKeymap": "gb",
+            "ubuntuLayout": "gb"
+          },
+          {
+            "id": "nl",
+            "label": "Dutch",
+            "fedoraKeymap": "us",
+            "ubuntuLayout": "us",
+            "ubuntuVariant": "intl"
+          },
+          {
+            "id": "de",
+            "label": "German",
+            "fedoraKeymap": "de",
+            "ubuntuLayout": "de"
+          },
+          {
+            "id": "fr",
+            "label": "French",
+            "fedoraKeymap": "fr",
+            "ubuntuLayout": "fr"
+          },
+          {
+            "id": "es",
+            "label": "Spanish",
+            "fedoraKeymap": "es",
+            "ubuntuLayout": "es"
+          },
+          {
+            "id": "it",
+            "label": "Italian",
+            "fedoraKeymap": "it",
+            "ubuntuLayout": "it"
+          },
+          {
+            "id": "br",
+            "label": "Portuguese (Brazil)",
+            "fedoraKeymap": "br-abnt2",
+            "ubuntuLayout": "br"
+          },
+          {
+            "id": "se",
+            "label": "Swedish",
+            "fedoraKeymap": "se",
+            "ubuntuLayout": "se"
+          },
+          {
+            "id": "pl",
+            "label": "Polish",
+            "fedoraKeymap": "pl",
+            "ubuntuLayout": "pl"
+          },
+          {
+            "id": "jp",
+            "label": "Japanese",
+            "fedoraKeymap": "jp",
+            "ubuntuLayout": "jp"
+          },
+          {
+            "id": "kr",
+            "label": "Korean",
+            "fedoraKeymap": "kr",
+            "ubuntuLayout": "kr"
+          },
+          {
+            "id": "ru",
+            "label": "Russian",
+            "fedoraKeymap": "ru",
+            "ubuntuLayout": "ru"
+          }
         ],
         "timezones": [
           "UTC",
@@ -132,13 +414,241 @@
         ]
       },
       "media": {
-        "kind": "desktop",
-        "filename": "ubuntu-24.04.3-desktop-amd64.iso",
-        "downloadUrl": "https://releases.ubuntu.com/24.04/ubuntu-24.04.3-desktop-amd64.iso",
-        "checksumUrl": "https://releases.ubuntu.com/24.04/SHA256SUMS",
-        "checksumSignatureUrl": "https://releases.ubuntu.com/24.04/SHA256SUMS.gpg",
-        "gpgKeyUrl": "https://cdimage.ubuntu.com/cdimage/ubuntu-keyring/ubuntu-archive-keyring.gpg",
-        "keyDocsUrl": "https://ubuntu.com/tutorials/how-to-verify-ubuntu"
+        "x86_64": {
+          "kind": "desktop",
+          "filename": "ubuntu-24.04.4-desktop-amd64.iso",
+          "downloadUrl": "https://releases.ubuntu.com/24.04/ubuntu-24.04.4-desktop-amd64.iso",
+          "checksumUrl": "https://releases.ubuntu.com/24.04/SHA256SUMS",
+          "checksumSignatureUrl": "https://releases.ubuntu.com/24.04/SHA256SUMS.gpg",
+          "gpgKeyUrl": "https://cdimage.ubuntu.com/cdimage/ubuntu-keyring/ubuntu-archive-keyring.gpg",
+          "keyDocsUrl": "https://ubuntu.com/tutorials/how-to-verify-ubuntu"
+        },
+        "aarch64": {
+          "kind": "desktop",
+          "filename": "ubuntu-24.04.4-desktop-arm64.iso",
+          "downloadUrl": "https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04.4-desktop-arm64.iso",
+          "checksumUrl": "https://cdimage.ubuntu.com/releases/24.04/release/SHA256SUMS",
+          "checksumSignatureUrl": "https://cdimage.ubuntu.com/releases/24.04/release/SHA256SUMS.gpg",
+          "gpgKeyUrl": "https://cdimage.ubuntu.com/cdimage/ubuntu-keyring/ubuntu-archive-keyring.gpg",
+          "keyDocsUrl": "https://ubuntu.com/tutorials/how-to-verify-ubuntu"
+        }
+      }
+    },
+    "ubuntu-26.04": {
+      "distribution": "ubuntu",
+      "release": "26.04",
+      "displayName": "Ubuntu 26.04 LTS",
+      "publisher": "Ubuntu",
+      "icon": "ubuntu.svg",
+      "ubuntuCodename": "resolute",
+      "locales": {
+        "languages": [
+          {
+            "id": "en_US",
+            "label": "English (US)",
+            "fedoraLang": "en_US.UTF-8",
+            "ubuntuLocale": "en_US.UTF-8"
+          },
+          {
+            "id": "en_GB",
+            "label": "English (UK)",
+            "fedoraLang": "en_GB.UTF-8",
+            "ubuntuLocale": "en_GB.UTF-8"
+          },
+          {
+            "id": "nl_NL",
+            "label": "Dutch",
+            "fedoraLang": "nl_NL.UTF-8",
+            "ubuntuLocale": "nl_NL.UTF-8"
+          },
+          {
+            "id": "de_DE",
+            "label": "German",
+            "fedoraLang": "de_DE.UTF-8",
+            "ubuntuLocale": "de_DE.UTF-8"
+          },
+          {
+            "id": "fr_FR",
+            "label": "French",
+            "fedoraLang": "fr_FR.UTF-8",
+            "ubuntuLocale": "fr_FR.UTF-8"
+          },
+          {
+            "id": "es_ES",
+            "label": "Spanish",
+            "fedoraLang": "es_ES.UTF-8",
+            "ubuntuLocale": "es_ES.UTF-8"
+          },
+          {
+            "id": "it_IT",
+            "label": "Italian",
+            "fedoraLang": "it_IT.UTF-8",
+            "ubuntuLocale": "it_IT.UTF-8"
+          },
+          {
+            "id": "pt_BR",
+            "label": "Portuguese (Brazil)",
+            "fedoraLang": "pt_BR.UTF-8",
+            "ubuntuLocale": "pt_BR.UTF-8"
+          },
+          {
+            "id": "sv_SE",
+            "label": "Swedish",
+            "fedoraLang": "sv_SE.UTF-8",
+            "ubuntuLocale": "sv_SE.UTF-8"
+          },
+          {
+            "id": "pl_PL",
+            "label": "Polish",
+            "fedoraLang": "pl_PL.UTF-8",
+            "ubuntuLocale": "pl_PL.UTF-8"
+          },
+          {
+            "id": "ja_JP",
+            "label": "Japanese",
+            "fedoraLang": "ja_JP.UTF-8",
+            "ubuntuLocale": "ja_JP.UTF-8"
+          },
+          {
+            "id": "zh_CN",
+            "label": "Chinese (Simplified)",
+            "fedoraLang": "zh_CN.UTF-8",
+            "ubuntuLocale": "zh_CN.UTF-8"
+          },
+          {
+            "id": "ko_KR",
+            "label": "Korean",
+            "fedoraLang": "ko_KR.UTF-8",
+            "ubuntuLocale": "ko_KR.UTF-8"
+          },
+          {
+            "id": "ru_RU",
+            "label": "Russian",
+            "fedoraLang": "ru_RU.UTF-8",
+            "ubuntuLocale": "ru_RU.UTF-8"
+          }
+        ],
+        "keyboards": [
+          {
+            "id": "us",
+            "label": "English (US)",
+            "fedoraKeymap": "us",
+            "ubuntuLayout": "us"
+          },
+          {
+            "id": "gb",
+            "label": "English (UK)",
+            "fedoraKeymap": "gb",
+            "ubuntuLayout": "gb"
+          },
+          {
+            "id": "nl",
+            "label": "Dutch",
+            "fedoraKeymap": "us",
+            "ubuntuLayout": "us",
+            "ubuntuVariant": "intl"
+          },
+          {
+            "id": "de",
+            "label": "German",
+            "fedoraKeymap": "de",
+            "ubuntuLayout": "de"
+          },
+          {
+            "id": "fr",
+            "label": "French",
+            "fedoraKeymap": "fr",
+            "ubuntuLayout": "fr"
+          },
+          {
+            "id": "es",
+            "label": "Spanish",
+            "fedoraKeymap": "es",
+            "ubuntuLayout": "es"
+          },
+          {
+            "id": "it",
+            "label": "Italian",
+            "fedoraKeymap": "it",
+            "ubuntuLayout": "it"
+          },
+          {
+            "id": "br",
+            "label": "Portuguese (Brazil)",
+            "fedoraKeymap": "br-abnt2",
+            "ubuntuLayout": "br"
+          },
+          {
+            "id": "se",
+            "label": "Swedish",
+            "fedoraKeymap": "se",
+            "ubuntuLayout": "se"
+          },
+          {
+            "id": "pl",
+            "label": "Polish",
+            "fedoraKeymap": "pl",
+            "ubuntuLayout": "pl"
+          },
+          {
+            "id": "jp",
+            "label": "Japanese",
+            "fedoraKeymap": "jp",
+            "ubuntuLayout": "jp"
+          },
+          {
+            "id": "kr",
+            "label": "Korean",
+            "fedoraKeymap": "kr",
+            "ubuntuLayout": "kr"
+          },
+          {
+            "id": "ru",
+            "label": "Russian",
+            "fedoraKeymap": "ru",
+            "ubuntuLayout": "ru"
+          }
+        ],
+        "timezones": [
+          "UTC",
+          "Europe/Amsterdam",
+          "Europe/London",
+          "Europe/Berlin",
+          "Europe/Paris",
+          "Europe/Madrid",
+          "Europe/Rome",
+          "Europe/Stockholm",
+          "Europe/Warsaw",
+          "America/New_York",
+          "America/Chicago",
+          "America/Denver",
+          "America/Los_Angeles",
+          "America/Sao_Paulo",
+          "Asia/Tokyo",
+          "Asia/Seoul",
+          "Asia/Shanghai",
+          "Australia/Sydney"
+        ]
+      },
+      "media": {
+        "x86_64": {
+          "kind": "desktop",
+          "filename": "ubuntu-26.04-desktop-amd64.iso",
+          "downloadUrl": "https://releases.ubuntu.com/26.04/ubuntu-26.04-desktop-amd64.iso",
+          "checksumUrl": "https://releases.ubuntu.com/26.04/SHA256SUMS",
+          "checksumSignatureUrl": "https://releases.ubuntu.com/26.04/SHA256SUMS.gpg",
+          "gpgKeyUrl": "https://cdimage.ubuntu.com/cdimage/ubuntu-keyring/ubuntu-archive-keyring.gpg",
+          "keyDocsUrl": "https://ubuntu.com/tutorials/how-to-verify-ubuntu"
+        },
+        "aarch64": {
+          "kind": "desktop",
+          "filename": "ubuntu-26.04-desktop-arm64.iso",
+          "downloadUrl": "https://cdimage.ubuntu.com/releases/26.04/release/ubuntu-26.04-desktop-arm64.iso",
+          "checksumUrl": "https://cdimage.ubuntu.com/releases/26.04/release/SHA256SUMS",
+          "checksumSignatureUrl": "https://cdimage.ubuntu.com/releases/26.04/release/SHA256SUMS.gpg",
+          "gpgKeyUrl": "https://cdimage.ubuntu.com/cdimage/ubuntu-keyring/ubuntu-archive-keyring.gpg",
+          "keyDocsUrl": "https://ubuntu.com/tutorials/how-to-verify-ubuntu"
+        }
       }
     }
   },
@@ -155,7 +665,9 @@
       "targets": {
         "fedora-44": {
           "sourceClass": "vendor",
-          "packages": ["code"],
+          "packages": [
+            "code"
+          ],
           "vendor": {
             "publisher": "Microsoft",
             "repoUrl": "https://packages.microsoft.com/yumrepos/vscode",
@@ -165,13 +677,28 @@
         },
         "ubuntu-24.04": {
           "sourceClass": "vendor",
-          "packages": ["code"],
+          "packages": [
+            "code"
+          ],
           "vendor": {
             "publisher": "Microsoft",
             "repoUrl": "https://packages.microsoft.com/repos/code",
             "keyUrl": "https://packages.microsoft.com/keys/microsoft.asc",
             "keyDocsUrl": "https://code.visualstudio.com/docs/setup/linux",
-            "repoFile": "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+            "repoFile": "deb [arch={arch}] https://packages.microsoft.com/repos/code stable main"
+          }
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "code"
+          ],
+          "vendor": {
+            "publisher": "Microsoft",
+            "repoUrl": "https://packages.microsoft.com/repos/code",
+            "keyUrl": "https://packages.microsoft.com/keys/microsoft.asc",
+            "keyDocsUrl": "https://code.visualstudio.com/docs/setup/linux",
+            "repoFile": "deb [arch={arch}] https://packages.microsoft.com/repos/code stable main"
           }
         }
       }
@@ -188,7 +715,9 @@
       "targets": {
         "fedora-44": {
           "sourceClass": "vendor",
-          "packages": ["cursor"],
+          "packages": [
+            "cursor"
+          ],
           "vendor": {
             "publisher": "Anysphere",
             "repoUrl": "https://downloads.cursor.com/yumrepo",
@@ -198,13 +727,28 @@
         },
         "ubuntu-24.04": {
           "sourceClass": "vendor",
-          "packages": ["cursor"],
+          "packages": [
+            "cursor"
+          ],
           "vendor": {
             "publisher": "Anysphere",
             "repoUrl": "https://downloads.cursor.com/aptrepo",
             "keyUrl": "https://downloads.cursor.com/keys/anysphere.asc",
             "keyDocsUrl": "https://cursor.com/docs",
-            "repoFile": "deb [arch=amd64] https://downloads.cursor.com/aptrepo stable main"
+            "repoFile": "deb [arch={arch}] https://downloads.cursor.com/aptrepo stable main"
+          }
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "cursor"
+          ],
+          "vendor": {
+            "publisher": "Anysphere",
+            "repoUrl": "https://downloads.cursor.com/aptrepo",
+            "keyUrl": "https://downloads.cursor.com/keys/anysphere.asc",
+            "keyDocsUrl": "https://cursor.com/docs",
+            "repoFile": "deb [arch={arch}] https://downloads.cursor.com/aptrepo stable main"
           }
         }
       }
@@ -219,8 +763,27 @@
       "iconSource": "packages/catalogue/icons/neovim.svg",
       "iconLicense": "official mark; nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["neovim"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["neovim"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "neovim"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "neovim"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "neovim"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -232,8 +795,27 @@
       "iconSource": "packages/catalogue/icons/micro.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["micro"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["micro"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "micro"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "micro"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "micro"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -245,8 +827,27 @@
       "iconSource": "packages/catalogue/icons/emacs.svg",
       "iconLicense": "official mark; nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["emacs"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["emacs"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "emacs"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "emacs"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "emacs"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -258,8 +859,27 @@
       "iconSource": "packages/catalogue/icons/kitty.svg",
       "iconLicense": "official mark; nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["kitty"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["kitty"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "kitty"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "kitty"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "kitty"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -271,8 +891,27 @@
       "iconSource": "packages/catalogue/icons/alacritty.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["alacritty"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["alacritty"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "alacritty"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "alacritty"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "alacritty"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -283,8 +922,16 @@
       "icon": "ghostty.svg",
       "iconSource": "packages/catalogue/icons/ghostty.svg",
       "iconLicense": "official mark; nominative identification",
-      "unavailableReason": "Not in official Fedora 44 / Ubuntu 24.04 repositories.",
-      "targets": {}
+      "unavailableReason": "Not in official Fedora 44 or Ubuntu 24.04 repositories.",
+      "targets": {
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "ghostty"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 universe"
+        }
+      }
     },
     {
       "id": "git",
@@ -295,8 +942,27 @@
       "iconSource": "packages/catalogue/icons/git.svg",
       "iconLicense": "official mark; nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["git"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["git"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "git"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "git"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "git"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -309,8 +975,27 @@
       "iconLicense": "official mark; nominative identification",
       "note": "Distro package; version may lag GitHub’s own apt/rpm repo.",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["gh"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["gh"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "gh"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "gh"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "gh"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -322,8 +1007,27 @@
       "iconSource": "packages/catalogue/icons/lazygit.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["lazygit"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["lazygit"], "distroVersionLabel": "Ubuntu 24.04 universe" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "lazygit"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "lazygit"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 universe"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "lazygit"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 universe"
+        }
       }
     },
     {
@@ -335,8 +1039,27 @@
       "iconSource": "packages/catalogue/icons/git-delta.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["git-delta"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["git-delta"], "distroVersionLabel": "Ubuntu 24.04 universe" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "git-delta"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "git-delta"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 universe"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "git-delta"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 universe"
+        }
       }
     },
     {
@@ -348,8 +1071,24 @@
       "iconSource": "packages/catalogue/icons/btop.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["btop"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["btop"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "btop"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "btop"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "btop"
+          ]
+        }
       }
     },
     {
@@ -361,8 +1100,24 @@
       "iconSource": "packages/catalogue/icons/htop.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["htop"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["htop"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "htop"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "htop"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "htop"
+          ]
+        }
       }
     },
     {
@@ -374,8 +1129,24 @@
       "iconSource": "packages/catalogue/icons/tmux.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["tmux"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["tmux"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "tmux"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "tmux"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "tmux"
+          ]
+        }
       }
     },
     {
@@ -387,8 +1158,24 @@
       "iconSource": "packages/catalogue/icons/fzf.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["fzf"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["fzf"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "fzf"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "fzf"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "fzf"
+          ]
+        }
       }
     },
     {
@@ -400,8 +1187,24 @@
       "iconSource": "packages/catalogue/icons/ripgrep.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["ripgrep"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["ripgrep"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "ripgrep"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "ripgrep"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "ripgrep"
+          ]
+        }
       }
     },
     {
@@ -413,8 +1216,24 @@
       "iconSource": "packages/catalogue/icons/fd.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["fd-find"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["fd-find"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "fd-find"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "fd-find"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "fd-find"
+          ]
+        }
       }
     },
     {
@@ -426,8 +1245,24 @@
       "iconSource": "packages/catalogue/icons/bat.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["bat"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["bat"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "bat"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "bat"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "bat"
+          ]
+        }
       }
     },
     {
@@ -439,8 +1274,24 @@
       "iconSource": "packages/catalogue/icons/jq.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["jq"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["jq"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "jq"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "jq"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "jq"
+          ]
+        }
       }
     },
     {
@@ -452,8 +1303,24 @@
       "iconSource": "packages/catalogue/icons/yq.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["yq"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["yq"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "yq"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "yq"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "yq"
+          ]
+        }
       }
     },
     {
@@ -465,8 +1332,24 @@
       "iconSource": "packages/catalogue/icons/zoxide.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["zoxide"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["zoxide"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "zoxide"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "zoxide"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "zoxide"
+          ]
+        }
       }
     },
     {
@@ -478,8 +1361,24 @@
       "iconSource": "packages/catalogue/icons/direnv.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["direnv"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["direnv"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "direnv"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "direnv"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "direnv"
+          ]
+        }
       }
     },
     {
@@ -491,8 +1390,24 @@
       "iconSource": "packages/catalogue/icons/starship.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["starship"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["starship"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "starship"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "starship"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "starship"
+          ]
+        }
       }
     },
     {
@@ -504,8 +1419,24 @@
       "iconSource": "packages/catalogue/icons/shellcheck.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["ShellCheck"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["shellcheck"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "ShellCheck"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "shellcheck"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "shellcheck"
+          ]
+        }
       }
     },
     {
@@ -517,8 +1448,24 @@
       "iconSource": "packages/catalogue/icons/curl.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["curl"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["curl"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "curl"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "curl"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "curl"
+          ]
+        }
       }
     },
     {
@@ -530,8 +1477,24 @@
       "iconSource": "packages/catalogue/icons/wget.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["wget"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["wget"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "wget"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "wget"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "wget"
+          ]
+        }
       }
     },
     {
@@ -543,8 +1506,24 @@
       "iconSource": "packages/catalogue/icons/unzip.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["unzip"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["unzip"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "unzip"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "unzip"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "unzip"
+          ]
+        }
       }
     },
     {
@@ -556,8 +1535,24 @@
       "iconSource": "packages/catalogue/icons/tree.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["tree"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["tree"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "tree"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "tree"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "tree"
+          ]
+        }
       }
     },
     {
@@ -569,8 +1564,32 @@
       "iconSource": "packages/catalogue/icons/python.svg",
       "iconLicense": "official mark; nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["python3", "python3-pip"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["python3", "python3-pip", "python3-venv"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "python3",
+            "python3-pip"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "python3",
+            "python3-pip",
+            "python3-venv"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "python3",
+            "python3-pip",
+            "python3-venv"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -582,8 +1601,30 @@
       "iconSource": "packages/catalogue/icons/nodejs.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["nodejs", "npm"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["nodejs", "npm"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "nodejs",
+            "npm"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "nodejs",
+            "npm"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "nodejs",
+            "npm"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -595,8 +1636,27 @@
       "iconSource": "packages/catalogue/icons/go.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["golang"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["golang"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "golang"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "golang"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "golang"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -609,8 +1669,30 @@
       "iconLicense": "Simple Icons (CC0); nominative identification",
       "note": "Distro rust + cargo, not rustup.",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["rust", "cargo"], "distroVersionLabel": "Fedora 44 package" },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["rustc", "cargo"], "distroVersionLabel": "Ubuntu 24.04 package" }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "rust",
+            "cargo"
+          ],
+          "distroVersionLabel": "Fedora 44 package"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "rustc",
+            "cargo"
+          ],
+          "distroVersionLabel": "Ubuntu 24.04 package"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "rustc",
+            "cargo"
+          ],
+          "distroVersionLabel": "Ubuntu 26.04 package"
+        }
       }
     },
     {
@@ -622,8 +1704,24 @@
       "iconSource": "packages/catalogue/icons/build-tools.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
-        "fedora-44": { "sourceClass": "distro", "packages": ["@development-tools"] },
-        "ubuntu-24.04": { "sourceClass": "distro", "packages": ["build-essential"] }
+        "fedora-44": {
+          "sourceClass": "distro",
+          "packages": [
+            "@development-tools"
+          ]
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "build-essential"
+          ]
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "distro",
+          "packages": [
+            "build-essential"
+          ]
+        }
       }
     },
     {
@@ -638,8 +1736,16 @@
       "targets": {
         "fedora-44": {
           "sourceClass": "vendor",
-          "packages": ["docker-ce", "docker-ce-cli", "containerd.io", "docker-buildx-plugin", "docker-compose-plugin"],
-          "units": ["docker.service"],
+          "packages": [
+            "docker-ce",
+            "docker-ce-cli",
+            "containerd.io",
+            "docker-buildx-plugin",
+            "docker-compose-plugin"
+          ],
+          "units": [
+            "docker.service"
+          ],
           "vendor": {
             "publisher": "Docker",
             "repoUrl": "https://download.docker.com/linux/fedora",
@@ -649,14 +1755,42 @@
         },
         "ubuntu-24.04": {
           "sourceClass": "vendor",
-          "packages": ["docker-ce", "docker-ce-cli", "containerd.io", "docker-buildx-plugin", "docker-compose-plugin"],
-          "units": ["docker.service"],
+          "packages": [
+            "docker-ce",
+            "docker-ce-cli",
+            "containerd.io",
+            "docker-buildx-plugin",
+            "docker-compose-plugin"
+          ],
+          "units": [
+            "docker.service"
+          ],
           "vendor": {
             "publisher": "Docker",
             "repoUrl": "https://download.docker.com/linux/ubuntu",
             "keyUrl": "https://download.docker.com/linux/ubuntu/gpg",
             "keyDocsUrl": "https://docs.docker.com/engine/install/ubuntu/",
-            "repoFile": "deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable"
+            "repoFile": "deb [arch={arch}] https://download.docker.com/linux/ubuntu noble stable"
+          }
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "vendor",
+          "packages": [
+            "docker-ce",
+            "docker-ce-cli",
+            "containerd.io",
+            "docker-buildx-plugin",
+            "docker-compose-plugin"
+          ],
+          "units": [
+            "docker.service"
+          ],
+          "vendor": {
+            "publisher": "Docker",
+            "repoUrl": "https://download.docker.com/linux/ubuntu",
+            "keyUrl": "https://download.docker.com/linux/ubuntu/gpg",
+            "keyDocsUrl": "https://docs.docker.com/engine/install/ubuntu/",
+            "repoFile": "deb [arch={arch}] https://download.docker.com/linux/ubuntu resolute stable"
           }
         }
       }
@@ -670,10 +1804,25 @@
       "icon": "claude-code.svg",
       "iconSource": "packages/catalogue/icons/claude-code.svg",
       "iconLicense": "official mark; nominative identification",
-      "requires": ["nodejs"],
+      "requires": [
+        "nodejs"
+      ],
       "targets": {
-        "fedora-44": { "sourceClass": "npm", "packages": [], "npmPackage": "@anthropic-ai/claude-code" },
-        "ubuntu-24.04": { "sourceClass": "npm", "packages": [], "npmPackage": "@anthropic-ai/claude-code" }
+        "fedora-44": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@anthropic-ai/claude-code"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@anthropic-ai/claude-code"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@anthropic-ai/claude-code"
+        }
       }
     },
     {
@@ -685,10 +1834,25 @@
       "icon": "codex.svg",
       "iconSource": "packages/catalogue/icons/codex.svg",
       "iconLicense": "official mark; nominative identification",
-      "requires": ["nodejs"],
+      "requires": [
+        "nodejs"
+      ],
       "targets": {
-        "fedora-44": { "sourceClass": "npm", "packages": [], "npmPackage": "@openai/codex" },
-        "ubuntu-24.04": { "sourceClass": "npm", "packages": [], "npmPackage": "@openai/codex" }
+        "fedora-44": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@openai/codex"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@openai/codex"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@openai/codex"
+        }
       }
     },
     {
@@ -700,11 +1864,26 @@
       "icon": "gemini-cli.svg",
       "iconSource": "packages/catalogue/icons/gemini-cli.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
-      "requires": ["nodejs"],
+      "requires": [
+        "nodejs"
+      ],
       "note": "Apache-2.0 CLI; still npm allowlist, not distro-signed.",
       "targets": {
-        "fedora-44": { "sourceClass": "npm", "packages": [], "npmPackage": "@google/gemini-cli" },
-        "ubuntu-24.04": { "sourceClass": "npm", "packages": [], "npmPackage": "@google/gemini-cli" }
+        "fedora-44": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@google/gemini-cli"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@google/gemini-cli"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "@google/gemini-cli"
+        }
       }
     },
     {
@@ -716,11 +1895,26 @@
       "icon": "opencode.svg",
       "iconSource": "packages/catalogue/icons/opencode.svg",
       "iconLicense": "Simple Icons (CC0); nominative identification",
-      "requires": ["nodejs"],
+      "requires": [
+        "nodejs"
+      ],
       "note": "MIT; still npm allowlist, not distro-signed.",
       "targets": {
-        "fedora-44": { "sourceClass": "npm", "packages": [], "npmPackage": "opencode-ai" },
-        "ubuntu-24.04": { "sourceClass": "npm", "packages": [], "npmPackage": "opencode-ai" }
+        "fedora-44": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "opencode-ai"
+        },
+        "ubuntu-24.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "opencode-ai"
+        },
+        "ubuntu-26.04": {
+          "sourceClass": "npm",
+          "packages": [],
+          "npmPackage": "opencode-ai"
+        }
       }
     }
   ],
@@ -729,16 +1923,54 @@
       "id": "ssh",
       "name": "OpenSSH server",
       "targets": {
-        "fedora-44": { "packages": ["openssh-server"], "units": ["sshd.service"] },
-        "ubuntu-24.04": { "packages": ["openssh-server"], "units": ["ssh.service"] }
+        "fedora-44": {
+          "packages": [
+            "openssh-server"
+          ],
+          "units": [
+            "sshd.service"
+          ]
+        },
+        "ubuntu-24.04": {
+          "packages": [
+            "openssh-server"
+          ],
+          "units": [
+            "ssh.service"
+          ]
+        },
+        "ubuntu-26.04": {
+          "packages": [
+            "openssh-server"
+          ],
+          "units": [
+            "ssh.service"
+          ]
+        }
       }
     },
     {
       "id": "docker",
       "name": "Docker engine",
       "targets": {
-        "fedora-44": { "packages": [], "units": ["docker.service"] },
-        "ubuntu-24.04": { "packages": [], "units": ["docker.service"] }
+        "fedora-44": {
+          "packages": [],
+          "units": [
+            "docker.service"
+          ]
+        },
+        "ubuntu-24.04": {
+          "packages": [],
+          "units": [
+            "docker.service"
+          ]
+        },
+        "ubuntu-26.04": {
+          "packages": [],
+          "units": [
+            "docker.service"
+          ]
+        }
       }
     }
   ]

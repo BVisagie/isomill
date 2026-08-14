@@ -29,6 +29,8 @@ describe("source graph badges", () => {
     ]);
     expect(claude.badges.map((b) => b.kind)).toEqual(["npm-allowlist"]);
     expect(claude.badges[0]!.label).toBe("npm allowlist — not distro-signed");
+    expect(os.name).toBe("Fedora 44 · Intel / AMD 64-bit");
+    expect(os.detail).toBe("Fedora-Everything-netinst-x86_64-44-1.7.iso");
     expect(os.badges.map((b) => b.label)).toContain("Will verify official ISO");
     expect(os.badges.map((b) => b.label)).not.toContain("ISO verified");
   });

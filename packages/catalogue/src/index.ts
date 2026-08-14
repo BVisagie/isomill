@@ -2,9 +2,11 @@ import { createHash } from "node:crypto";
 import type {
   Application,
   AppTarget,
+  Architecture,
   Catalogue,
   MachineDefinition,
   OsEntry,
+  OsMedia,
   SourceGraphNode,
 } from "@isomill/schema";
 import { validateCatalogue } from "@isomill/schema";
@@ -30,6 +32,39 @@ export function getOs(definition: MachineDefinition, cat: Catalogue = catalogue)
     throw new Error(`unsupported os ${key}`);
   }
   return os;
+}
+
+export function getMedia(
+  definition: MachineDefinition,
+  cat: Catalogue = catalogue,
+): OsMedia {
+  const os = getOs(definition, cat);
+  const media = os.media[definition.os.architecture];
+  if (!media) {
+    throw new Error(
+      `unsupported architecture ${definition.os.architecture} for ${os.displayName}`,
+    );
+  }
+  return media;
+}
+
+export function aptArch(architecture: Architecture): "amd64" | "arm64" {
+  return architecture === "aarch64" ? "arm64" : "amd64";
+}
+
+export function archLabel(architecture: Architecture): string {
+  return architecture === "aarch64" ? "ARM 64-bit" : "Intel / AMD 64-bit";
+}
+
+export function osChoices(
+  cat: Catalogue = catalogue,
+): Array<{ key: string; distribution: OsEntry["distribution"]; release: string; displayName: string }> {
+  return Object.entries(cat.oses).map(([key, os]) => ({
+    key,
+    distribution: os.distribution,
+    release: os.release,
+    displayName: os.displayName,
+  }));
 }
 
 export function getApplication(id: string, cat: Catalogue = catalogue): Application {
@@ -120,10 +155,12 @@ export function egressHosts(
   };
 
   for (const os of Object.values(cat.oses)) {
-    add(os.media.downloadUrl);
-    add(os.media.checksumUrl);
-    if (os.media.checksumSignatureUrl) add(os.media.checksumSignatureUrl);
-    add(os.media.gpgKeyUrl);
+    for (const media of Object.values(os.media)) {
+      add(media.downloadUrl);
+      add(media.checksumUrl);
+      if (media.checksumSignatureUrl) add(media.checksumSignatureUrl);
+      add(media.gpgKeyUrl);
+    }
   }
   for (const app of cat.applications) {
     for (const target of Object.values(app.targets)) {
@@ -167,9 +204,10 @@ export function buildSourceGraph(
   const nodes: SourceGraphNode[] = [
     {
       id: `os:${osKey(definition)}`,
-      name: os.displayName,
+      name: `${os.displayName} · ${archLabel(definition.os.architecture)}`,
       icon: os.icon ?? `${definition.os.distribution}.svg`,
       publisher: os.publisher,
+      detail: getMedia(definition, cat).filename,
       badges: [
         {
           kind: "official-repository",

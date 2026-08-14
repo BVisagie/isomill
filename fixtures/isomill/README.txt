@@ -17,12 +17,12 @@ Who generated it?
 
 Which upstream ISO was used?
   fedora 44
-  filename: Fedora-Everything-netinst-x86_64-44-1.5.iso
-  url: https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.5.iso
+  filename: Fedora-Everything-netinst-x86_64-44-1.7.iso
+  url: https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-netinst-x86_64-44-1.7.iso
 
 What checksum was verified?
   sha256 (not verified in this sample — a live ISO records the checksum this instance actually checked)
-  checksum file: https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-x86_64-44-1.5-CHECKSUM
+  checksum file: https://download.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/iso/Fedora-Everything-44-1.7-x86_64-CHECKSUM
   signature verified: not yet / sample
 
 Which configuration was embedded?

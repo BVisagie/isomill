@@ -3,7 +3,7 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { catalogue, egressHosts } from "@isomill/catalogue";
+import { catalogue, egressHosts, getMedia } from "@isomill/catalogue";
 import { buildSourceGraph, compileDefinition } from "@isomill/compiler";
 import { validateMachineDefinition, type MachineDefinition } from "@isomill/schema";
 import {
@@ -97,10 +97,15 @@ app.get("/builds/:id/iso", async (c) => {
 app.get("/cache/iso-status", async (c) => {
   const distro = c.req.query("distribution");
   const release = c.req.query("release");
+  const architecture = c.req.query("architecture") ?? "x86_64";
   if (!distro || !release) return c.json({ verified: false });
   const os = catalogue.oses[`${distro}-${release}`];
-  if (!os) return c.json({ verified: false });
-  const keyUrl = os.media.gpgKeyUrl;
+  if (!os || (architecture !== "x86_64" && architecture !== "aarch64")) {
+    return c.json({ verified: false });
+  }
+  const media = os.media[architecture];
+  if (!media) return c.json({ verified: false });
+  const keyUrl = media.gpgKeyUrl;
   const fp = await getObservedFingerprint(keyUrl);
   return c.json({
     verified: Boolean(fp),
@@ -116,7 +121,7 @@ app.get("/internal/jobs/claim", async (c) => {
   const row = await claimQueued();
   if (!row) return c.json({ job: null });
   const os = catalogue.oses[`${row.definition.os.distribution}-${row.definition.os.release}`];
-  const last = os ? await getObservedFingerprint(os.media.gpgKeyUrl) : undefined;
+  const last = os ? await getObservedFingerprint(getMedia(row.definition).gpgKeyUrl) : undefined;
   return c.json({ job: publicBuild(row), lastObservedFingerprint: last ?? null });
 });
 
