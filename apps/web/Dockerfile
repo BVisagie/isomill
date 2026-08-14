@@ -1,4 +1,4 @@
-FROM node:22-bookworm-slim AS build
+FROM node:24-bookworm-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 COPY packages ./packages
@@ -11,7 +11,7 @@ RUN npm install \
   && npm run build -w @isomill/compiler \
   && npm run build -w @isomill/web
 
-FROM node:22-bookworm-slim
+FROM node:24-bookworm-slim
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build /app /app

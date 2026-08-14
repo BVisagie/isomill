@@ -21,6 +21,9 @@
     "build:demo": "ISOMILL_DEMO=1 npm run build:demo -w @isomill/web"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }

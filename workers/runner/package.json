@@ -14,7 +14,7 @@
     "@isomill/schema": "0.1.0"
   },
   "devDependencies": {
-    "@types/node": "^24.3.0",
-    "typescript": "^5.9.2"
+    "@types/node": "^24.13.3",
+    "typescript": "^7.0.2"
   }
 }

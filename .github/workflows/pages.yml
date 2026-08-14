@@ -19,20 +19,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: "22"
+          node-version: "24"
           cache: npm
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - run: npm ci
       - run: npm run build -w @isomill/schema
       - run: npm run build -w @isomill/catalogue
       - run: npm run build -w @isomill/compiler
       - run: ISOMILL_DEMO=1 NEXT_PUBLIC_BASE_PATH=${{ github.event.repository.name == github.repository_owner && '' || format('/{0}', github.event.repository.name) }} npm run build:demo -w @isomill/web
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/out
+          include-hidden-files: true
 
   deploy:
     needs: build
