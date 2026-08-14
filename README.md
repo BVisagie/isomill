@@ -26,12 +26,14 @@ The USB carries the configuration. It does not depend on this repo or your Compo
 
 The GitHub Pages demo is the full builder with a **live Source Graph**. Generate does not build an ISO. A sample `/isomill` tree is included and labeled as a fixture, not a live image.
 
+First deploy: in the repo, **Settings → Pages → Build and deployment → Source: GitHub Actions**. Until that is set, `actions/deploy-pages` returns 404 even if the workflow succeeds at building.
+
 ## Build a real ISO
 
 You need Docker (a Linux VM on Mac/Windows — the worker is always Linux).
 
 ```bash
-git clone https://github.com/isomill/isomill.git   # or this repo
+git clone https://github.com/BVisagie/isomill.git
 cd isomill
 docker compose up --build
 ```

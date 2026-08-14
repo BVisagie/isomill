@@ -9,25 +9,28 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
-      - run: npm install
+          cache: npm
+      - uses: actions/configure-pages@v5
+      - run: npm ci
       - run: npm run build -w @isomill/schema
       - run: npm run build -w @isomill/catalogue
       - run: npm run build -w @isomill/compiler
       - run: ISOMILL_DEMO=1 NEXT_PUBLIC_BASE_PATH=${{ github.event.repository.name == github.repository_owner && '' || format('/{0}', github.event.repository.name) }} npm run build:demo -w @isomill/web
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: apps/web/out
 
@@ -39,4 +42,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
