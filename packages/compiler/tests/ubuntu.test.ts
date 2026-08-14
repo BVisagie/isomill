@@ -115,9 +115,9 @@ describe("ubuntu 24.04 autoinstall", () => {
   it("drops Ubuntu's default Firefox Snap when another browser is selected", () => {
     const { userData } = generateAutoinstall({
       ...sample,
-      applications: ["gnome-web"],
+      applications: ["brave-origin"],
     });
-    expect(userData).toContain("epiphany-browser");
+    expect(userData).toContain("brave-origin");
     expect(userData).toContain("snap remove firefox");
     expect(userData).toContain("apt-get purge -y firefox");
   });

@@ -87,7 +87,7 @@ describe("catalogue", () => {
     const ids = catalogue.applications
       .filter((a) => a.group === "browsers")
       .map((a) => a.id);
-    expect(ids).toEqual(["firefox", "chromium", "brave-origin", "gnome-web"]);
+    expect(ids).toEqual(["firefox", "chromium", "brave-origin"]);
     const chromium = catalogue.applications.find((a) => a.id === "chromium")!;
     expect(isAppAvailable(chromium, fedora)).toBe(true);
     expect(

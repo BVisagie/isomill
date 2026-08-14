@@ -110,12 +110,6 @@ const files = {
     <path d="M16 7.8v4.2" stroke="#1D4ED8" stroke-width="2.4" stroke-linecap="round"/>`,
   ),
   "brave-origin": tileSimple(si("brave")),
-  "gnome-web": tileSymbol(
-    "#1E3A8A",
-    `<circle cx="16" cy="16" r="8.5" stroke="#BFDBFE" stroke-width="2"/>
-    <path d="M16 7.5v17M7.5 16h17" stroke="#93C5FD" stroke-width="1.6"/>
-    <ellipse cx="16" cy="16" rx="4.2" ry="8.5" stroke="#BFDBFE" stroke-width="1.6"/>`,
-  ),
   cursor: tileSimple(si("cursor"), { pad: 5 }),
   neovim: tileOfficial("neovim.svg", { bg: "#111827", pad: 5 }),
   micro: tileSimple(si("microeditor")),

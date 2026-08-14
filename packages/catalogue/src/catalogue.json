@@ -723,7 +723,7 @@
       "iconSource": "packages/catalogue/icons/chromium.svg",
       "iconLicense": "catalogue glyph; no public official mark",
       "note": "Selecting this without Firefox drops the desktop's default Firefox. On Ubuntu, Chromium in the archive is a Snap stub, so this tile is Fedora-only.",
-      "unavailableReason": "Ubuntu's Chromium is a Snap stub. isomill does not install snaps; use Firefox, Brave Origin, or GNOME Web.",
+      "unavailableReason": "Ubuntu's Chromium is a Snap stub. isomill does not install snaps; use Firefox or Brave Origin.",
       "targets": {
         "fedora-44": {
           "sourceClass": "distro",
@@ -782,40 +782,6 @@
             "keyDocsUrl": "https://brave.com/origin/linux/",
             "repoFile": "deb [arch={arch} signed-by=/etc/apt/keyrings/brave-origin.asc] https://brave-browser-apt-release.s3.brave.com/ stable main"
           }
-        }
-      }
-    },
-    {
-      "id": "gnome-web",
-      "name": "GNOME Web",
-      "group": "browsers",
-      "license": "first-party",
-      "publisher": "GNOME",
-      "icon": "gnome-web.svg",
-      "iconSource": "packages/catalogue/icons/gnome-web.svg",
-      "iconLicense": "catalogue glyph; no public official mark",
-      "note": "GNOME's first-party WebKit browser (Epiphany). Selecting this without Firefox drops the desktop's default Firefox.",
-      "targets": {
-        "fedora-44": {
-          "sourceClass": "distro",
-          "packages": [
-            "epiphany"
-          ],
-          "distroVersionLabel": "Fedora 44 package"
-        },
-        "ubuntu-24.04": {
-          "sourceClass": "distro",
-          "packages": [
-            "epiphany-browser"
-          ],
-          "distroVersionLabel": "Ubuntu 24.04 package"
-        },
-        "ubuntu-26.04": {
-          "sourceClass": "distro",
-          "packages": [
-            "epiphany-browser"
-          ],
-          "distroVersionLabel": "Ubuntu 26.04 package"
         }
       }
     },
