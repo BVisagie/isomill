@@ -15,6 +15,8 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "compile": "npm run compile -w @isomill/compiler",
     "dev:api": "npm run dev -w @isomill/api",
     "dev:web": "npm run dev -w @isomill/web",
@@ -25,5 +27,12 @@
   },
   "allowScripts": {
     "esbuild@0.28.2": true
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.5.0",
+    "typescript-eslint": "^8.46.4"
   }
 }

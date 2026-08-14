@@ -18,7 +18,7 @@ function unboundPrefixes(xml: string) {
   for (const match of xml.matchAll(/\sxmlns:([A-Za-z_][\w.-]*)=/g)) {
     declared.add(match[1]);
   }
-  const unbound = new Set();
+  const unbound = new Set<string>();
   for (const match of xml.matchAll(/<\/?([A-Za-z_][\w.-]*):/g)) {
     if (!declared.has(match[1])) unbound.add(match[1]);
   }

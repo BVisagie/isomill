@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { expandDefinition } from "@isomill/catalogue";
 import { prepareDefinition } from "../src/common.js";
 
 describe("unavailable apps", () => {
@@ -38,5 +37,3 @@ describe("unavailable apps", () => {
     ).toThrow(/Snap/);
   });
 });
-
-void expandDefinition;

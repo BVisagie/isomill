@@ -67,8 +67,7 @@ describe("key tripwire", () => {
 describe("official ISO resolver", () => {
   it("verifies a clearsigned checksum and trips on fingerprint change", async () => {
     const { privateKey, publicKey } = await openpgp.generateKey({
-      type: "ecc",
-      curve: "ed25519",
+      type: "curve25519",
       userIDs: [{ name: "Test Distro", email: "iso@example.invalid" }],
     });
     const filename = "Fedora-Everything-netinst-x86_64-44-1.5.iso";
