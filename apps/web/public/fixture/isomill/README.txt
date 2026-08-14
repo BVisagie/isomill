@@ -9,7 +9,7 @@ What is this?
 
 Which project generated it?
   isomill 0.1.0 (git sample)
-  https://github.com/isomill/isomill
+  https://github.com/BVisagie/isomill
 
 Who generated it?
   A self-hosted isomill worker. This file lives on the ISO so the media still

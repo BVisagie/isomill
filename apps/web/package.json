@@ -4,8 +4,10 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "prebuild": "node ./scripts/sync-icons.mjs",
-    "dev": "node ./scripts/sync-icons.mjs && next dev --port 3000",
+    "sync": "node ./scripts/sync-icons.mjs",
+    "prebuild": "npm run sync",
+    "prebuild:demo": "npm run sync",
+    "dev": "npm run sync && next dev --port 3000",
     "build": "next build",
     "build:demo": "ISOMILL_DEMO=1 next build",
     "start": "next start --port 3000"

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { BuildStatus, MachineDefinition } from "@isomill/schema";
 import { catalogue, buildSourceGraph } from "@isomill/catalogue";
 import { AppTiles } from "./AppTiles";
+import { GitHubLink } from "./GitHubLink";
 import { SourceGraph } from "./SourceGraph";
 import { Stepper } from "./Stepper";
 
@@ -157,6 +158,7 @@ export function Builder() {
             via dnf or apt.
           </p>
         </div>
+        <GitHubLink />
       </header>
 
       <div className="layout">
