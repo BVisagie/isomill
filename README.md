@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="brand/icon.svg" width="96" height="96" alt="isomill">
+</p>
+
 # isomill
 
 **Installation media that explains itself.**

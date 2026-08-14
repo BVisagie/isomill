@@ -13,5 +13,6 @@ iso-out/
 fixtures/generated/
 
 .cache/
+brand/.preview/
 apps/web/tsconfig.tsbuildinfo
 packages/*/tsconfig.tsbuildinfo

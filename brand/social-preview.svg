@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="isomill">
+  <title>isomill</title>
+  <defs>
+    <mask id="isomill-eye">
+      <circle cx="0" cy="0" r="96" fill="#fff"/>
+      <rect x="-26.4" y="-26.4" width="52.8" height="52.8" fill="#000" transform="rotate(45)"/>
+    </mask>
+  </defs>
+  <rect width="1280" height="640" fill="#16130e"/>
+  <circle cx="140" cy="-80" r="560" fill="#2a2218"/>
+  <rect x="80" y="184" width="272" height="272" rx="60" fill="#221c16" stroke="#3a3228" stroke-width="2"/>
+  <g transform="translate(216 320)">
+    <circle r="96" fill="#f3ead8" mask="url(#isomill-eye)"/>
+    <circle r="65" fill="none" stroke="#16130e" stroke-width="7"/>
+  </g>
+  <text x="400" y="308" fill="#f3ead8" font-family="Iowan Old Style" font-size="92" font-weight="bold">isomill</text>
+  <text x="400" y="368" fill="#e4d8c0" font-family="Avenir Next" font-size="28">Installation media that explains itself.</text>
+  <rect x="400" y="398" width="72" height="2" fill="#b08948"/>
+  <text x="400" y="440" fill="#7a6d5b" font-family="Avenir Next" font-size="22">Thin official Fedora and Ubuntu installer ISOs, with provenance on the media.</text>
+</svg>

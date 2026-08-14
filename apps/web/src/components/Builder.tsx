@@ -5,6 +5,7 @@ import type { Architecture, BuildStatus, MachineDefinition } from "@isomill/sche
 import { compileDefinition } from "@isomill/compiler/preview";
 import { catalogue, buildSourceGraph, osChoices, archLabel } from "@isomill/catalogue";
 import { AppTiles } from "./AppTiles";
+import { BrandMark } from "./BrandMark";
 import { GitHubLink, SOURCE_REPO } from "./GitHubLink";
 import { ProvenanceDialog } from "./ProvenanceDialog";
 import { SourceGraph } from "./SourceGraph";
@@ -170,14 +171,17 @@ export function Builder() {
       ) : null}
 
       <header className="masthead">
-        <div>
-          <h1 className="wordmark">isomill</h1>
-          <p className="tagline">
-            Installation media that explains itself. A Machine Definition
-            becomes a thin official Fedora or Ubuntu installer ISO. Identity and
-            disk stay in the install shield. Packages resolve at install time
-            via dnf or apt.
-          </p>
+        <div className="brand">
+          <BrandMark className="brand-mark" />
+          <div>
+            <h1 className="wordmark">isomill</h1>
+            <p className="tagline">
+              Installation media that explains itself. A Machine Definition
+              becomes a thin official Fedora or Ubuntu installer ISO. Identity and
+              disk stay in the install shield. Packages resolve at install time
+              via dnf or apt.
+            </p>
+          </div>
         </div>
         <GitHubLink />
       </header>
