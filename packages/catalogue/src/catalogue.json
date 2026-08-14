@@ -151,7 +151,7 @@
       "publisher": "Microsoft",
       "icon": "vscode.svg",
       "iconSource": "packages/catalogue/icons/vscode.svg",
-      "iconLicense": "custom-glyph; nominative identification of Visual Studio Code",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": {
           "sourceClass": "vendor",
@@ -184,7 +184,7 @@
       "publisher": "Anysphere",
       "icon": "cursor.svg",
       "iconSource": "packages/catalogue/icons/cursor.svg",
-      "iconLicense": "custom-glyph; nominative identification of Cursor",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": {
           "sourceClass": "vendor",
@@ -217,7 +217,7 @@
       "publisher": "Neovim",
       "icon": "neovim.svg",
       "iconSource": "packages/catalogue/icons/neovim.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["neovim"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["neovim"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -230,7 +230,7 @@
       "license": "first-party",
       "icon": "micro.svg",
       "iconSource": "packages/catalogue/icons/micro.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["micro"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["micro"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -243,7 +243,7 @@
       "license": "first-party",
       "icon": "emacs.svg",
       "iconSource": "packages/catalogue/icons/emacs.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["emacs"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["emacs"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -256,7 +256,7 @@
       "license": "first-party",
       "icon": "kitty.svg",
       "iconSource": "packages/catalogue/icons/kitty.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["kitty"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["kitty"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -269,7 +269,7 @@
       "license": "first-party",
       "icon": "alacritty.svg",
       "iconSource": "packages/catalogue/icons/alacritty.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["alacritty"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["alacritty"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -282,7 +282,7 @@
       "license": "first-party",
       "icon": "ghostty.svg",
       "iconSource": "packages/catalogue/icons/ghostty.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "unavailableReason": "Not in official Fedora 44 / Ubuntu 24.04 repositories.",
       "targets": {}
     },
@@ -293,7 +293,7 @@
       "license": "first-party",
       "icon": "git.svg",
       "iconSource": "packages/catalogue/icons/git.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["git"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["git"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -306,7 +306,7 @@
       "license": "first-party",
       "icon": "gh.svg",
       "iconSource": "packages/catalogue/icons/gh.svg",
-      "iconLicense": "custom-glyph; nominative identification of GitHub CLI",
+      "iconLicense": "official mark; nominative identification",
       "note": "Distro package; version may lag GitHub’s own apt/rpm repo.",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["gh"], "distroVersionLabel": "Fedora 44 package" },
@@ -320,7 +320,7 @@
       "license": "first-party",
       "icon": "lazygit.svg",
       "iconSource": "packages/catalogue/icons/lazygit.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["lazygit"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["lazygit"], "distroVersionLabel": "Ubuntu 24.04 universe" }
@@ -333,7 +333,7 @@
       "license": "first-party",
       "icon": "git-delta.svg",
       "iconSource": "packages/catalogue/icons/git-delta.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["git-delta"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["git-delta"], "distroVersionLabel": "Ubuntu 24.04 universe" }
@@ -346,7 +346,7 @@
       "license": "first-party",
       "icon": "btop.svg",
       "iconSource": "packages/catalogue/icons/btop.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["btop"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["btop"] }
@@ -359,7 +359,7 @@
       "license": "first-party",
       "icon": "htop.svg",
       "iconSource": "packages/catalogue/icons/htop.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["htop"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["htop"] }
@@ -372,7 +372,7 @@
       "license": "first-party",
       "icon": "tmux.svg",
       "iconSource": "packages/catalogue/icons/tmux.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["tmux"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["tmux"] }
@@ -385,7 +385,7 @@
       "license": "first-party",
       "icon": "fzf.svg",
       "iconSource": "packages/catalogue/icons/fzf.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["fzf"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["fzf"] }
@@ -398,7 +398,7 @@
       "license": "first-party",
       "icon": "ripgrep.svg",
       "iconSource": "packages/catalogue/icons/ripgrep.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["ripgrep"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["ripgrep"] }
@@ -411,7 +411,7 @@
       "license": "first-party",
       "icon": "fd.svg",
       "iconSource": "packages/catalogue/icons/fd.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["fd-find"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["fd-find"] }
@@ -424,7 +424,7 @@
       "license": "first-party",
       "icon": "bat.svg",
       "iconSource": "packages/catalogue/icons/bat.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["bat"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["bat"] }
@@ -437,7 +437,7 @@
       "license": "first-party",
       "icon": "jq.svg",
       "iconSource": "packages/catalogue/icons/jq.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["jq"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["jq"] }
@@ -450,7 +450,7 @@
       "license": "first-party",
       "icon": "yq.svg",
       "iconSource": "packages/catalogue/icons/yq.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["yq"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["yq"] }
@@ -463,7 +463,7 @@
       "license": "first-party",
       "icon": "zoxide.svg",
       "iconSource": "packages/catalogue/icons/zoxide.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["zoxide"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["zoxide"] }
@@ -476,7 +476,7 @@
       "license": "first-party",
       "icon": "direnv.svg",
       "iconSource": "packages/catalogue/icons/direnv.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["direnv"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["direnv"] }
@@ -489,7 +489,7 @@
       "license": "first-party",
       "icon": "starship.svg",
       "iconSource": "packages/catalogue/icons/starship.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["starship"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["starship"] }
@@ -502,7 +502,7 @@
       "license": "first-party",
       "icon": "shellcheck.svg",
       "iconSource": "packages/catalogue/icons/shellcheck.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["ShellCheck"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["shellcheck"] }
@@ -515,7 +515,7 @@
       "license": "first-party",
       "icon": "curl.svg",
       "iconSource": "packages/catalogue/icons/curl.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["curl"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["curl"] }
@@ -528,7 +528,7 @@
       "license": "first-party",
       "icon": "wget.svg",
       "iconSource": "packages/catalogue/icons/wget.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["wget"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["wget"] }
@@ -541,7 +541,7 @@
       "license": "first-party",
       "icon": "unzip.svg",
       "iconSource": "packages/catalogue/icons/unzip.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["unzip"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["unzip"] }
@@ -554,7 +554,7 @@
       "license": "first-party",
       "icon": "tree.svg",
       "iconSource": "packages/catalogue/icons/tree.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["tree"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["tree"] }
@@ -567,7 +567,7 @@
       "license": "first-party",
       "icon": "python.svg",
       "iconSource": "packages/catalogue/icons/python.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["python3", "python3-pip"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["python3", "python3-pip", "python3-venv"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -580,7 +580,7 @@
       "license": "first-party",
       "icon": "nodejs.svg",
       "iconSource": "packages/catalogue/icons/nodejs.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["nodejs", "npm"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["nodejs", "npm"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -593,7 +593,7 @@
       "license": "first-party",
       "icon": "go.svg",
       "iconSource": "packages/catalogue/icons/go.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["golang"], "distroVersionLabel": "Fedora 44 package" },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["golang"], "distroVersionLabel": "Ubuntu 24.04 package" }
@@ -606,7 +606,7 @@
       "license": "first-party",
       "icon": "rust.svg",
       "iconSource": "packages/catalogue/icons/rust.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "note": "Distro rust + cargo, not rustup.",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["rust", "cargo"], "distroVersionLabel": "Fedora 44 package" },
@@ -620,7 +620,7 @@
       "license": "first-party",
       "icon": "build-tools.svg",
       "iconSource": "packages/catalogue/icons/build-tools.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "catalogue glyph; no public official mark",
       "targets": {
         "fedora-44": { "sourceClass": "distro", "packages": ["@development-tools"] },
         "ubuntu-24.04": { "sourceClass": "distro", "packages": ["build-essential"] }
@@ -634,7 +634,7 @@
       "publisher": "Docker",
       "icon": "docker.svg",
       "iconSource": "packages/catalogue/icons/docker.svg",
-      "iconLicense": "custom-glyph; nominative identification of Docker",
+      "iconLicense": "official mark; nominative identification",
       "targets": {
         "fedora-44": {
           "sourceClass": "vendor",
@@ -669,7 +669,7 @@
       "publisher": "Anthropic",
       "icon": "claude-code.svg",
       "iconSource": "packages/catalogue/icons/claude-code.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "requires": ["nodejs"],
       "targets": {
         "fedora-44": { "sourceClass": "npm", "packages": [], "npmPackage": "@anthropic-ai/claude-code" },
@@ -684,7 +684,7 @@
       "publisher": "OpenAI",
       "icon": "codex.svg",
       "iconSource": "packages/catalogue/icons/codex.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "official mark; nominative identification",
       "requires": ["nodejs"],
       "targets": {
         "fedora-44": { "sourceClass": "npm", "packages": [], "npmPackage": "@openai/codex" },
@@ -699,7 +699,7 @@
       "publisher": "Google",
       "icon": "gemini-cli.svg",
       "iconSource": "packages/catalogue/icons/gemini-cli.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "requires": ["nodejs"],
       "note": "Apache-2.0 CLI; still npm allowlist, not distro-signed.",
       "targets": {
@@ -715,7 +715,7 @@
       "publisher": "OpenCode",
       "icon": "opencode.svg",
       "iconSource": "packages/catalogue/icons/opencode.svg",
-      "iconLicense": "custom-glyph",
+      "iconLicense": "Simple Icons (CC0); nominative identification",
       "requires": ["nodejs"],
       "note": "MIT; still npm allowlist, not distro-signed.",
       "targets": {

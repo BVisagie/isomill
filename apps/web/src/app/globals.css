@@ -189,6 +189,8 @@ select, input[type="text"] {
   width: 28px;
   height: 28px;
   flex: none;
+  display: block;
+  border-radius: 6px;
 }
 
 .tile .name { font-size: 0.92rem; display: block; }
@@ -213,13 +215,18 @@ select, input[type="text"] {
 
 .g-node {
   display: grid;
-  grid-template-columns: 22px 1fr;
+  grid-template-columns: 24px 1fr;
   gap: 0.55rem;
   padding: 0.55rem 0;
   border-bottom: 1px solid #2c261f;
 }
 
-.g-node img { width: 22px; height: 22px; }
+.g-node img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  border-radius: 5px;
+}
 
 .badge {
   display: inline-block;
@@ -309,4 +316,51 @@ pre.readme {
   line-height: 1.45;
   overflow: auto;
   max-height: 28rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8vh 1.25rem 2rem;
+  overflow: auto;
+  background: rgba(8, 6, 4, 0.72);
+}
+
+.modal {
+  width: min(44rem, 100%);
+  background: var(--ink-2);
+  border: 1px solid var(--rule);
+  padding: 1.15rem 1.2rem 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-head h2 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.modal-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 1.1rem 0 0.45rem;
+}
+
+.modal pre.readme {
+  max-height: 22rem;
 }

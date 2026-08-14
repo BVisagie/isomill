@@ -2,9 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { BuildStatus, MachineDefinition } from "@isomill/schema";
+import { compileDefinition } from "@isomill/compiler/preview";
 import { catalogue, buildSourceGraph } from "@isomill/catalogue";
 import { AppTiles } from "./AppTiles";
-import { GitHubLink } from "./GitHubLink";
+import { GitHubLink, SOURCE_REPO } from "./GitHubLink";
+import { ProvenanceDialog } from "./ProvenanceDialog";
 import { SourceGraph } from "./SourceGraph";
 import { Stepper } from "./Stepper";
 
@@ -52,6 +54,20 @@ export function Builder() {
 
   const nodes = useMemo(
     () => buildSourceGraph(def, catalogue, { isoVerified }),
+    [def, isoVerified],
+  );
+
+  const preview = useMemo(
+    () =>
+      compileDefinition(def, catalogue, {
+        builder: {
+          version: "0.1.0",
+          gitCommit: isoVerified ? "observed" : "preview",
+          sourceRepo: SOURCE_REPO,
+        },
+        isoVerified,
+        sample: DEMO,
+      }),
     [def, isoVerified],
   );
 
@@ -335,20 +351,18 @@ export function Builder() {
         </aside>
       </div>
 
-      {showProv ? (
-        <section className="fixture">
-          <h2>Complete provenance (preview)</h2>
-          <p className="note">
-            After a real build this is the same tree written to{" "}
-            <code>/isomill/</code> on the ISO. Preview here is catalogue-backed,
-            not a checksum witness, until Generate finishes.
-          </p>
-          <pre className="readme">{JSON.stringify({ definition: def, sourceGraph: nodes }, null, 2)}</pre>
-          <button className="linkish" type="button" onClick={() => setShowProv(false)}>
-            Close
-          </button>
-        </section>
-      ) : null}
+      <ProvenanceDialog
+        open={showProv}
+        title="Complete provenance (preview)"
+        note={
+          isoVerified
+            ? "This is the same tree written to /isomill/ on the ISO after Generate finishes."
+            : "This is the /isomill tree that would be written onto the ISO. Checksums stay unverified until Generate finishes on your machine."
+        }
+        readme={preview.readme}
+        json={`${JSON.stringify(preview.provenance, null, 2)}\n`}
+        onClose={() => setShowProv(false)}
+      />
 
       <section className="fixture">
         <h2>Sample /isomill tree</h2>

@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   basePath: basePath || undefined,
   trailingSlash: demo,
   images: { unoptimized: true },
-  transpilePackages: ["@isomill/catalogue", "@isomill/schema"],
+  transpilePackages: ["@isomill/catalogue", "@isomill/schema", "@isomill/compiler"],
   env: {
     NEXT_PUBLIC_ISOMILL_DEMO: demo ? "1" : "",
   },

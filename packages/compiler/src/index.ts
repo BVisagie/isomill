@@ -1,6 +1,7 @@
 export { generateKickstart } from "./fedora.js";
 export { generateAutoinstall, parseAutoinstallUserData } from "./ubuntu.js";
-export { compileDefinition, writeIsomillTree } from "./compile.js";
+export { compileDefinition } from "./compile.js";
+export { writeIsomillTree } from "./write.js";
 export {
   buildProvenance,
   renderReadme,

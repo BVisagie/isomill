@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@isomill/catalogue": "0.1.0",
+    "@isomill/compiler": "0.1.0",
     "@isomill/schema": "0.1.0",
     "next": "^16.3.1",
     "react": "^19.2.8",

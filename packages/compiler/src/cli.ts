@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { compileDefinition, writeIsomillTree } from "./compile.js";
+import { compileDefinition } from "./compile.js";
+import { writeIsomillTree } from "./write.js";
 import { generateKickstart } from "./fedora.js";
 import { generateAutoinstall } from "./ubuntu.js";
 

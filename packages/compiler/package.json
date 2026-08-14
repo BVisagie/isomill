@@ -8,6 +8,16 @@
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./preview": {
+      "types": "./dist/compile.d.ts",
+      "import": "./dist/compile.js"
+    }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "compile": "tsx src/cli.ts",
