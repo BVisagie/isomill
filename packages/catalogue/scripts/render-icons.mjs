@@ -47,6 +47,18 @@ function prefixIds(svg, prefix) {
     .replace(/xlink:href="#([^"]+)"/g, `xlink:href="#${prefix}-$1"`);
 }
 
+// Nested tiles drop the source <svg> tag, including xmlns:sketch / rdf / cc.
+// Browsers parse <img src="*.svg"> as XML, so leftover prefixes become a
+// broken-image icon. Keep xml: / xlink: (declared on the outer tile).
+function sanitizeInner(svg) {
+  return svg
+    .replace(/<metadata\b[^>]*>[\s\S]*?<\/metadata>/gi, "")
+    .replace(/\s+xmlns:(?!xlink)[A-Za-z_][\w.-]*="[^"]*"/g, "")
+    .replace(/\s+([A-Za-z_][\w.-]*):([A-Za-z_][\w.-]*)="[^"]*"/g, (full, prefix) =>
+      prefix === "xml" || prefix === "xlink" || prefix === "xmlns" ? full : "",
+    );
+}
+
 function extractInner(svg, prefix) {
   const vbMatch = svg.match(/viewBox="([^"]+)"/);
   let vb = vbMatch?.[1];
@@ -61,6 +73,7 @@ function extractInner(svg, prefix) {
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/<svg\b[^>]*>/i, "")
     .replace(/<\/svg>\s*$/i, "");
+  inner = sanitizeInner(inner);
   inner = prefixIds(inner, prefix);
   return { vb, inner };
 }

@@ -1,3 +1,6 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import {
   catalogue,
@@ -6,6 +9,23 @@ import {
   isAppAvailable,
   osChoices,
 } from "./index.js";
+
+const iconsDir = join(dirname(fileURLToPath(import.meta.url)), "../icons");
+
+function unboundPrefixes(xml) {
+  const declared = new Set(["xml", "xmlns"]);
+  for (const match of xml.matchAll(/\sxmlns:([A-Za-z_][\w.-]*)=/g)) {
+    declared.add(match[1]);
+  }
+  const unbound = new Set();
+  for (const match of xml.matchAll(/<\/?([A-Za-z_][\w.-]*):/g)) {
+    if (!declared.has(match[1])) unbound.add(match[1]);
+  }
+  for (const match of xml.matchAll(/\s([A-Za-z_][\w.-]*):[A-Za-z_][\w.-]*="/g)) {
+    if (match[1] !== "xmlns" && !declared.has(match[1])) unbound.add(match[1]);
+  }
+  return [...unbound];
+}
 
 const fedora = {
   schemaVersion: 1 as const,
@@ -60,5 +80,21 @@ describe("catalogue", () => {
     });
     expect(expanded.applications).toContain("nodejs");
     expect(expanded.applications).toContain("claude-code");
+  });
+
+  it("ships well-formed icon SVGs that browsers can load as images", () => {
+    const iconFiles = new Set(
+      readdirSync(iconsDir).filter((name) => name.endsWith(".svg")),
+    );
+    for (const app of catalogue.applications) {
+      expect(iconFiles.has(app.icon), app.icon).toBe(true);
+    }
+    for (const os of Object.values(catalogue.oses)) {
+      if (os.icon) expect(iconFiles.has(os.icon), os.icon).toBe(true);
+    }
+    for (const name of iconFiles) {
+      const xml = readFileSync(join(iconsDir, name), "utf8");
+      expect(unboundPrefixes(xml), name).toEqual([]);
+    }
   });
 });
