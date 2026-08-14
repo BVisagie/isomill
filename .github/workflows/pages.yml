@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
   actions: read
@@ -34,6 +34,19 @@ jobs:
         with:
           path: apps/web/out
           include-hidden-files: true
+
+      # Dual-write so PR previews can share gh-pages without wiping production.
+      # After this has run on main, switch Settings → Pages to Deploy from a
+      # branch (gh-pages / root). Keep deploy-pages until that switch; it will
+      # start failing once Pages is no longer "GitHub Actions".
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: apps/web/out
+          branch: gh-pages
+          force: false
+          clean-exclude: |
+            pr-preview
+          commit-message: Deploy production demo
 
   deploy:
     needs: build
